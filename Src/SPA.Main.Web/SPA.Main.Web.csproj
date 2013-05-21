@@ -114,6 +114,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\AjaxHelper.js" />
+    <Content Include="Scripts\ClockRefresherKOModel.js" />
     <Content Include="Scripts\jasmine\jasmine-html.js" />
     <Content Include="Scripts\jasmine\jasmine.css" />
     <Content Include="Scripts\jasmine\jasmine.js" />
@@ -121,7 +123,7 @@
     <Content Include="Scripts\libs\knockout-2.2.1.js" />
     <Content Include="Scripts\libs\modernizr.js" />
     <Content Include="Scripts\SpecRunner.html" />
-    <Content Include="Scripts\specs\MainKOSpec.js" />
+    <Content Include="Scripts\specs\ClockRefresherKOModelSpec.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
