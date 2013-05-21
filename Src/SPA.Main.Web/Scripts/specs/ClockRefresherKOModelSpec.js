@@ -11,7 +11,7 @@
         jasmine.Clock.uninstallMock();
     });
 
-    it('Should receive a successful response and update clock', function () {
+    it('Should receive a successful response', function () {
         var refreshRateInSeconds = 1;
         var clockRefresher = new ClockRefresherKOModel('url to get quotes from');
 
