@@ -122,6 +122,7 @@
     <Content Include="Scripts\jasmine\jasmine_favicon.png" />
     <Content Include="Scripts\libs\knockout-2.2.1.js" />
     <Content Include="Scripts\libs\modernizr.js" />
+    <Content Include="Scripts\myNameSpace.js" />
     <Content Include="Scripts\SpecRunner.html" />
     <Content Include="Scripts\specs\ClockRefresherKOModelSpec.js" />
     <Content Include="Web.config" />
