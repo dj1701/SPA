@@ -11,7 +11,9 @@ reports/
 *DotSettings.user
 src/**/[Dd]ebug/
 src/**/[Rr]elease/
-/src/CTM.Home.Web/Scripts/.idea/*
+SPA.Main.Web/obj/debug/*
+SPA.Main.Tests/obj/debug/*
+SPA.Main.ClockTimer/obj/debug/*
 /src/**/TestResults/
 /src/TestResults/
 *.webtestresult
