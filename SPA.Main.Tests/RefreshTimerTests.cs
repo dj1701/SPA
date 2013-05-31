@@ -9,7 +9,7 @@ namespace SPA.Main.Tests
     public class RefreshTimerTests
     {
         [Test]
-        public void ShouldHavePreciseTimeSpanBetweenStartTimeAndFinishTime()
+        public void ShouldHaveTimeSpanBetweenStartTimeAndFinishTime()
         {
             var ticker = new Ticker();
             var timeSpan = new TimeSpan(0, 0, 0, 10);

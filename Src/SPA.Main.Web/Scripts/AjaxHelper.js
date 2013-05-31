@@ -9,7 +9,10 @@ AjaxHelper.post = function (url, data, callback) {
         data: data,
         async: false,
         success: function (responseData) {
-            callback(responseData);
+            callback.checkForInformation(responseData);
+        },
+        error: function(responseData) {
+            callback.logError(responseData);
         }
     });
 };
@@ -25,7 +28,10 @@ AjaxHelper.get = function (url, data, callback) {
         data: data,
         async: true,
         success: function (responseData) {
-            callback(responseData);
+            callback.checkForInformation(responseData);
+        },
+        error: function (responseData) {
+            callback.logError(responseData);
         }
     });
 
