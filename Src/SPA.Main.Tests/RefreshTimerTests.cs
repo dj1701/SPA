@@ -22,8 +22,8 @@ namespace SPA.Main.Tests
             ticker.Stop();
 
             var expectedFinishTimeFormatted = String.Format("{0:D2}:{1:D2}:{2:D2}", expectedFinishTime.Hour, expectedFinishTime.Minute, expectedFinishTime.Second);
-            Assert.IsNotNull(ticker.FinishTime);
-            Assert.That(expectedFinishTimeFormatted,Is.EqualTo(ticker.FinishTime));
+            Assert.IsNotNull(ticker.Time);
+            Assert.That(expectedFinishTimeFormatted,Is.EqualTo(ticker.Time));
         }
     }
 }

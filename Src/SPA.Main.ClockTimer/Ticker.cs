@@ -10,7 +10,7 @@ namespace SPA.Main.RefreshTimer
         private int minute;
         private int second;
 
-        public string FinishTime { get; private set; }
+        public string Time { get; private set; }
 
         public void Start()
         {
@@ -25,12 +25,12 @@ namespace SPA.Main.RefreshTimer
             hour = e.SignalTime.Hour;
             minute = e.SignalTime.Minute;
             second = e.SignalTime.Second;
+            Time = String.Format("{0:D2}:{1:D2}:{2:D2}", hour, minute, second);
         }
 
         public void Stop()
         {
             timer.Stop();
-            FinishTime = String.Format("{0:D2}:{1:D2}:{2:D2}", hour, minute, second);
             timer.Elapsed -= TimerElapsed;
             timer.Enabled = false;
         }

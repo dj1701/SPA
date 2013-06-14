@@ -120,10 +120,17 @@
     <Content Include="Scripts\jasmine\jasmine.css" />
     <Content Include="Scripts\jasmine\jasmine.js" />
     <Content Include="Scripts\jasmine\jasmine_favicon.png" />
+    <Content Include="Scripts\jquery-2.0.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.0.2.js" />
+    <Content Include="Scripts\jquery-2.0.2.min.js" />
+    <Content Include="Scripts\libs\jquery-2.0.2-vsdoc.js" />
+    <Content Include="Scripts\libs\jquery-2.0.2.js" />
+    <Content Include="Scripts\libs\jquery-2.0.2.min.js" />
     <Content Include="Scripts\libs\knockout-2.2.1.js" />
     <Content Include="Scripts\libs\modernizr.js" />
     <Content Include="Scripts\myNameSpace.js" />
     <Content Include="Scripts\SpecRunner.html" />
+    <Content Include="Scripts\specs\ClockRefresherFakeCallBackKOModelSpec.js" />
     <Content Include="Scripts\specs\ClockRefresherKOModelSpec.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -147,6 +154,8 @@
   <ItemGroup>
     <None Include="Scripts\jasmine\MIT.LICENSE" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Scripts\jquery-2.0.2.min.map" />
+    <None Include="Scripts\libs\jquery-2.0.2.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

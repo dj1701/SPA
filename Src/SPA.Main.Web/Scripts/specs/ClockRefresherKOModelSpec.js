@@ -1,57 +1,17 @@
-﻿describe('Clock refresher', function () {
+﻿describe('Clock Refresher Data', function () {
 
-    beforeEach(function () {
-        jasmine.Clock.installMock();
-        jasmine.Clock.useMock();
-        AjaxHelper.get.isSpy = false;
-    });
+    it('Should make a real ajax call response with time data response', function () {
+        var time = new Date();
+        var hours = time.getHours();
+        var minutes = time.getMinutes();
+        var seconds = time.getSeconds() + 1;
+        var expectedResult = '[{"' + hours + '","' + minutes + '","' + seconds + '"}]';
+        var foo = new ClockRefresherKOModel(null);
 
-    afterEach(function () {
-        jasmine.Clock.reset();
-        jasmine.Clock.uninstallMock();
-    });
+        AjaxHelper.post('/Main/Index', {}, foo);
 
-    it('Should receive a successful response', function () {
-        var refreshRateInSeconds = 1;
-        var clockRefresherCallbacks = {
-            checkForInformation: jasmine.createSpy(),
-            logError: jasmine.createSpy()
-        };
-        var clockRefresher = new ClockRefresherKOModel('url to get quotes from');
-
-        spyOn(AjaxHelper, 'post').andCallFake(function (url, data, callback) {
-            if (url !== 'url to get quotes from') {
-                throw "Unexpected ajax to '" + url + "'";
-            }
-            callback.checkForInformation();
-        });
-
-        clockRefresher.sendRequest(clockRefresherCallbacks);
-        jasmine.Clock.tick(refreshRateInSeconds * 1000);
-
-        expect(clockRefresherCallbacks.checkForInformation.callCount).toBe(1);
         expect(AjaxHelper.post.callCount).toBe(1);
-    });
-
-    it('Should receive a error callback response', function () {
-        var refreshRateInSeconds = 1;
-        var clockRefresherCallbacks = {
-            checkForInformation: jasmine.createSpy(),
-            logError: jasmine.createSpy()
-        };
-
-        var clockRefresher = new ClockRefresherKOModel(null);
-
-        spyOn(AjaxHelper, 'post').andCallFake(function (url, data, callback) {
-            callback.logError();
-        });
-
-        clockRefresher.sendRequest(clockRefresherCallbacks);
-        jasmine.Clock.tick(refreshRateInSeconds * 1000);
-
-        expect(clockRefresherCallbacks.logError.callCount).toBe(1);
-        expect(AjaxHelper.post.callCount).toBe(1);
-        expect(clockRefresherCallbacks.checkForInformation).not.toHaveBeenCalled();
+        expect(foo.result).toBe(expectedResult);
     });
 
 });
