@@ -1,6 +1,0 @@
-﻿describe('', function () {
-
-    it('', function () {
-
-    });
-});
