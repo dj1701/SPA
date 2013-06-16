@@ -8,6 +8,10 @@
     };
 
     self.checkForInformation = function(responseData) {
-        self.result = $.parseJSON(responseData);
+        self.result = responseData;
+    };
+
+    self.logError = function (responseData) {
+        self.result = responseData;
     };
 }

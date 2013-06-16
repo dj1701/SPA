@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+	</head>
+	
+	<body>
+	
+		<div id="bindable" data-bind="foreach: Customers">
+			Forename: <span data-bind="text: Firstname"></span><br />
+			Surname:  <span data-bind="text: Lastname"></span><br />
+
+		    Main Contact: <span data-bind="text: PhoneNumbers[0].Number"></span> (<span data-bind="text: PhoneNumbers[0].Type"></span>)<br />
+            Mobile Number: <span data-bind="text: getMobileNumber()"></span>
+		    <hr/ >
+            
+		</div>
+
+	</body>
+	
+	<script type="text/javascript">
+			
+			<!-- DELEGATE CODE GOES HERE - START -->
+			var myNamespace = myNamespace || {};
+
+            myNamespace.Customer = function (firstName, lastName, phoneNumbers) {
+                var self = this;
+                self.Firstname = firstName;
+                self.Lastname = lastName;
+                self.PhoneNumbers = phoneNumbers || [];
+
+                self.getMobileNumber = function () {
+                    var mobileNumber = "No Mobile Number";
+                    for (var x = 0; x < self.PhoneNumbers.length; x++) {
+                        if (self.PhoneNumbers[x].Type == "Mobile")
+                            mobileNumber = self.PhoneNumbers[x].Number;
+
+                    }
+                    return mobileNumber;
+                };
+            };
+
+            myNamespace.PhoneNumber = function (type, number) {
+                var self = this;
+                self.Type = type;
+                self.Number = number;
+            };
+
+
+			<!-- DELEGATE CODE GOES HERE -  END  -->
+			
+			var myCustomer1 = new myNamespace.Customer("Joe", "Bloggs", [ new myNamespace.PhoneNumber("Home", "01733 123456"), new myNamespace.PhoneNumber("Mobile", "07789 555555") ]);
+			var myCustomer2 = new myNamespace.Customer("Richard", "Rodriguez", [ new myNamespace.PhoneNumber("Home", "01733 987654"), new myNamespace.PhoneNumber("Office", "07789 775588") ]);
+			
+			var customers = { Customers: [myCustomer1, myCustomer2] };
+			
+			ko.applyBindings(customers, document.getElementById("bindable"));
+			
+	</script>
+		
+</html>

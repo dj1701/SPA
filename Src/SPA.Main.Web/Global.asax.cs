@@ -15,5 +15,16 @@ namespace SPA.Main.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
+
+        public void RegisterRoutes(RouteCollection routes)
+        {
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.MapRoute(
+                "Default",                                              // Route name
+                "{controller}/{action}/{id}",                           // URL with parameters
+                new { controller = "Main", action = "Index", id = "" }  // Parameter defaults
+            );
+        }
     }
 }

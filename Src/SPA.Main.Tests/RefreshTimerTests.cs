@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using SPA.Main.RefreshTimer;
 
 namespace SPA.Main.Tests

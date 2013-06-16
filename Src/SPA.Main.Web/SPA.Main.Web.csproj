@@ -157,6 +157,12 @@
     <None Include="Scripts\jquery-2.0.2.min.map" />
     <None Include="Scripts\libs\jquery-2.0.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SPA.Main.ClockTimer\SPA.Main.RefreshTimer.csproj">
+      <Project>{4DAA2DA8-5661-4B42-802E-68834081C2DB}</Project>
+      <Name>SPA.Main.RefreshTimer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

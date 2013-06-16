@@ -4,14 +4,22 @@
         var time = new Date();
         var hours = time.getHours();
         var minutes = time.getMinutes();
-        var seconds = time.getSeconds() + 1;
-        var expectedResult = '[{"' + hours + '","' + minutes + '","' + seconds + '"}]';
+        var seconds = time.getSeconds();
+        var expectedResult = pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
         var foo = new ClockRefresherKOModel(null);
 
-        AjaxHelper.post('/Main/Index', {}, foo);
+        runs(
+            AjaxHelper.get('/Main/Index', null, foo)
+        );
 
-        expect(AjaxHelper.post.callCount).toBe(1);
-        expect(foo.result).toBe(expectedResult);
+        waits(2000);
+        
+        runs(function () {
+            expect(foo.result).toBe(expectedResult);
+        });
+
     });
+
+    function pad(n) { return ("0" + n).slice(-2); }
 
 });

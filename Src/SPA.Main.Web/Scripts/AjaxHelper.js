@@ -9,10 +9,14 @@ AjaxHelper.post = function (url, data, callback) {
         data: data,
         async: false,
         success: function (responseData) {
-            callback.checkForInformation(responseData);
+            if (callback) {
+                callback.checkForInformation(responseData);
+            }
         },
-        error: function(responseData) {
-            callback.logError(responseData);
+        error: function (responseData) {
+            if (callback) {
+                callback.logError(responseData);
+            }
         }
     });
 };
@@ -28,11 +32,14 @@ AjaxHelper.get = function (url, data, callback) {
         data: data,
         async: true,
         success: function (responseData) {
-            callback.checkForInformation(responseData);
+            if (callback) {
+                callback.checkForInformation(responseData);
+            }
         },
         error: function (responseData) {
-            callback.logError(responseData);
+            if (callback) {
+                callback.logError(responseData);
+            }
         }
     });
-
 };
