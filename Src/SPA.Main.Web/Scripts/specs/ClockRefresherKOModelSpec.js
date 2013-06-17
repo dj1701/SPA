@@ -8,18 +8,21 @@
         var expectedResult = pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
         var foo = new ClockRefresherKOModel(null);
 
-        runs(
-            AjaxHelper.get('/Main/Index', null, foo)
-        );
+        runs(function() {
+            AjaxHelper.get('/Main/Index', null, foo);
+        });
 
-        waits(2000);
-        
+        waitsFor(function () {
+            return foo.result.length > 0;
+        }, "Callback for result from ajax call not set", 2000);
+
         runs(function () {
             expect(foo.result).toBe(expectedResult);
         });
 
     });
 
+    //Helper function
     function pad(n) { return ("0" + n).slice(-2); }
 
 });
