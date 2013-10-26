@@ -1,22 +1,25 @@
 ﻿var myNamespace = myNamespace || {};
 
 myNamespace.Customer = function (firstName, lastName, phoneNumbers) {
-    this.Firstname = firstName;
-    this.Lastname = lastName;
-    this.PhoneNumbers = phoneNumbers || [];
+    var self = this;
+    self.Firstname = firstName;this.Lastname = lastName;
+    self.PhoneNumbers = phoneNumbers || [];
 
     var getMobileNumber = function () {
+        var mobileNumber = "No Mobile Number";
+
         for (var x = 0; x <= PhoneNumbers.length; x++) {
             if (PhoneNumbers[x].Type == "Mobile")
-                return PhoneNumbers[x];
+                mobileNumber = PhoneNumbers[x];
 
         }
-        return "No Mobile Number";
+        return mobileNumber;
     };
 };
 
 myNamespace.PhoneNumber = function (type, number) {
-    this.Type = type;
-    this.Number = number;
+    var self = this;
+    self.Type = type;
+    self.Number = number;
 };
 
