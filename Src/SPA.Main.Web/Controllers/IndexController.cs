@@ -1,13 +1,19 @@
-﻿using System.Web.Mvc;
+﻿using System.Threading;
+using System.Web.Mvc;
+using SPA.Main.RefreshTimer;
 
 namespace SPA.Main.Web.Controllers
 {
     public class IndexController : Controller
     {
         [HttpGet]
-        public ActionResult Index()
+        public string Index()
         {
-            return View();
+            var ticker = new Ticker();
+            ticker.Start();
+            Thread.Sleep(2000);
+            ticker.Stop();
+            return ticker.Time;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Timers;
+using Timer = System.Timers.Timer;
 
 namespace SPA.Main.RefreshTimer
 {
@@ -25,7 +26,7 @@ namespace SPA.Main.RefreshTimer
             hour = e.SignalTime.Hour;
             minute = e.SignalTime.Minute;
             second = e.SignalTime.Second;
-            Time = String.Format("{0:D2}:{1:D2}:{2:D2}", hour, minute, second);
+            Time = String.Format("{0:D2}:{1:D2}", hour, minute);
         }
 
         public void Stop()
