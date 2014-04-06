@@ -121,7 +121,7 @@
     <Content Include="Scripts\jasmine\jasmine.js" />
     <Content Include="Scripts\jasmine\jasmine_favicon.png" />
     <Content Include="Scripts\models\DateDifference.js" />
-    <Content Include="Scripts\specs\DateCalcSpec.js" />
+    <Content Include="Scripts\specs\DateDifferenceSpec.js" />
     <Content Include="Scripts\todo.js" />
     <Content Include="Scripts\libs\angular.min.js" />
     <Content Include="Scripts\libs\jquery-2.0.2-vsdoc.js" />
