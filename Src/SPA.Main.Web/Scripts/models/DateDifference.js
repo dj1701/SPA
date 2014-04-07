@@ -16,4 +16,10 @@
         var months = Math.floor(((difference / oneDay) / 365 * 12) % 1 == 0 ? ((difference / oneDay) / 365 * 12) : ((difference / oneDay) / 365.24 * 12));
         return months;
     };
+
+    self.Days = function (includeLastDay) {
+        var difference = self.secondDate - self.firstDate;
+        var days = Math.round(difference / oneDay) + (includeLastDay ? 1 : 0);
+        return days;
+    };
 }
