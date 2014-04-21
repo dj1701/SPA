@@ -302,4 +302,78 @@
             expect(days).toBe(1036);
         });
     });
+
+    describe('Calculation difference in hours with two dates', function () {
+        it('Should return 343368 hours with dates between 18/02/1975 and 21/04/2014 including last day', function () {
+            var firstDate = new Date(1975, 1, 18);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var hours = diff.Hours(true);
+
+            expect(hours).toBe(343368);
+        });
+
+        it('Should return 343344 hours with dates between 18/02/1975 and 21/04/2014 excluding last day', function () {
+            var firstDate = new Date(1975, 1, 18);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var hours = diff.Hours(false);
+
+            expect(hours).toBe(343344);
+        });
+
+        it('Should return 24 hours with dates between 01/01/2014 and 02/01/2014 excluding last day', function () {
+            var firstDate = new Date(2014, 0, 1);
+            var secondDate = new Date(2014, 0, 2);
+            var diff = new DateDifference(firstDate, secondDate);
+            var hours = diff.Hours(false);
+
+            expect(hours).toBe(24);
+        });
+
+        it('Should return 48 hours with dates between 01/01/2014 and 02/01/2014 including last day', function () {
+            var firstDate = new Date(2014, 0, 1);
+            var secondDate = new Date(2014, 0, 2);
+            var diff = new DateDifference(firstDate, secondDate);
+            var hours = diff.Hours(true);
+
+            expect(hours).toBe(48);
+        });
+
+        it('Should return 125376 hours with dates between 01/01/2000 and 21/04/2014 including last day', function () {
+            var firstDate = new Date(2000, 0, 1);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var hours = diff.Hours(true);
+
+            expect(hours).toBe(125376);
+        });
+
+        it('Should return 125352 hours with dates between 01/01/2000 and 21/04/2014 excluding last day', function () {
+            var firstDate = new Date(2000, 0, 1);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var hours = diff.Hours(false);
+
+            expect(hours).toBe(125352);
+        });
+
+        it('Should return 388344 hours with dates between 01/01/1970 and 21/04/2014 including last day', function () {
+            var firstDate = new Date(1970, 0, 1);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var hours = diff.Hours(true);
+
+            expect(hours).toBe(388344);
+        });
+
+        it('Should return 388322 hours with dates between 01/01/1970 and 21/04/2014 excluding last day', function () {
+            var firstDate = new Date(1970, 0, 1);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var hours = diff.Hours(false);
+
+            expect(hours).toBe(388320);
+        });
+    });
 });

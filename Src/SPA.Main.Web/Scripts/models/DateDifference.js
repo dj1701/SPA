@@ -22,4 +22,10 @@
         var days = Math.round(difference / oneDay) + (includeLastDay ? 1 : 0);
         return days;
     };
+
+    self.Hours = function (includeLastDay) {
+        var difference = self.secondDate - self.firstDate;
+        var hours = (Math.floor(difference / oneDay) * 24) + (includeLastDay ? 24 : 0);
+        return hours;
+    };
 }
