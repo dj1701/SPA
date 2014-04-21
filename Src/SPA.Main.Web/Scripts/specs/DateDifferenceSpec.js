@@ -375,5 +375,97 @@
 
             expect(hours).toBe(388320);
         });
+
+        it('Should return 563664 hours with dates between 31/12/1949 and 21/04/2014 excluding last day', function () {
+            var firstDate = new Date(1949, 11, 31);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var hours = diff.Hours(false);
+
+            expect(hours).toBe(563664);
+        });
+
+        it('Should return 563688 hours with dates between 31/12/1949 and 21/04/2014 including last day', function () {
+            var firstDate = new Date(1949, 11, 31);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var hours = diff.Hours(true);
+
+            expect(hours).toBe(563688);
+        });
+    });
+
+    describe('Calculation difference in minutes with two dates', function () {
+        it('Should return 1051200 minutes between 01/01/2013 and 01/01/2015 excluding last day', function () {
+            var firstDate = new Date(2013, 0, 1);
+            var secondDate = new Date(2015, 0, 1);
+            var diff = new DateDifference(firstDate, secondDate);
+            var minutes = diff.Minutes(false);
+
+            expect(minutes).toBe(1051200);
+        });
+
+        it('Should return 1052640 minutes between 01/01/2013 and 01/01/2015 including last day', function () {
+            var firstDate = new Date(2013, 0, 1);
+            var secondDate = new Date(2015, 0, 1);
+            var diff = new DateDifference(firstDate, secondDate);
+            var minutes = diff.Minutes(true);
+
+            expect(minutes).toBe(1052640);
+        });
+
+        it('Should return 308160 minutes between 01/06/2014 and 01/01/2015 excluding last day', function () {
+            var firstDate = new Date(2014, 5, 1);
+            var secondDate = new Date(2015, 0, 1);
+            var diff = new DateDifference(firstDate, secondDate);
+            var minutes = diff.Minutes(false);
+
+            expect(minutes).toBe(308160);
+        });
+
+        it('Should return 309560 minutes between 01/06/2014 and 01/01/2015 including last day', function () {
+            var firstDate = new Date(2014, 5, 1);
+            var secondDate = new Date(2015, 0, 1);
+            var diff = new DateDifference(firstDate, secondDate);
+            var minutes = diff.Minutes(true);
+
+            expect(minutes).toBe(309600);
+        });
+
+        it('Should return 23300640 minutes with dates between 01/01/1970 and 21/04/2014 including last day', function () {
+            var firstDate = new Date(1970, 0, 1);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var minutes = diff.Minutes(true);
+
+            expect(minutes).toBe(23300640);
+        });
+
+        it('Should return 23299200 minutes with dates between 01/01/1970 and 21/04/2014 excluding last day', function () {
+            var firstDate = new Date(1970, 0, 1);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var minutes = diff.Minutes(false);
+
+            expect(minutes).toBe(23299200);
+        });
+
+        it('Should return 7522560 minutes with dates between 01/01/2000 and 21/04/2014 including last day', function () {
+            var firstDate = new Date(2000, 0, 1);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var minutes = diff.Minutes(true);
+
+            expect(minutes).toBe(7522560);
+        });
+
+        it('Should return 7521120 minutes with dates between 01/01/2000 and 21/04/2014 excluding last day', function () {
+            var firstDate = new Date(2000, 0, 1);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var minutes = diff.Minutes(false);
+
+            expect(minutes).toBe(7521120);
+        });
     });
 });

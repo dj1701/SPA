@@ -28,4 +28,10 @@
         var hours = (Math.floor(difference / oneDay) * 24) + (includeLastDay ? 24 : 0);
         return hours;
     };
+
+    self.Minutes = function (includeLastDay) {
+        var difference = self.secondDate - self.firstDate;
+        var minutes = (Math.floor(difference / oneDay) * 24 + (includeLastDay ? 24 : 0)) * 60;
+        return minutes;
+    };
 }
