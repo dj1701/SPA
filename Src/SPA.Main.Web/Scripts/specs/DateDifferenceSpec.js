@@ -164,16 +164,52 @@
 
             expect(months).toBe(773);
         });
+
+        it('Should return 470 months with dates between 18/02/1975 and 21/04/2014', function () {
+            var firstDate = new Date(1975, 1, 18);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var months = diff.Months();
+
+            expect(months).toBe(470);
+        });
+
+        it('Should return 531 months with dates between 01/01/1970 and 21/04/2014', function () {
+            var firstDate = new Date(1970, 0, 1);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var months = diff.Months();
+
+            expect(months).toBe(531);
+        });
+
+        it('Should return 171 months with dates between 01/01/2000 and 21/04/2014', function () {
+            var firstDate = new Date(2000, 0, 1);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var months = diff.Months();
+
+            expect(months).toBe(171);
+        });
     });
 
     describe('Calculation difference in days with two dates', function () {
-        it('Should return 1 day with dates between 01/01/2014 and 02/01/2014', function () {
+        it('Should return 1 day with dates between 01/01/2014 and 02/01/2014 excluding last day', function () {
             var firstDate = new Date(2014, 0, 1);
             var secondDate = new Date(2014, 0, 2);
             var diff = new DateDifference(firstDate, secondDate);
             var months = diff.Days(false);
 
             expect(months).toBe(1);
+        });
+
+        it('Should return 2 days with dates between 01/01/2014 and 02/01/2014 including last day', function () {
+            var firstDate = new Date(2014, 0, 1);
+            var secondDate = new Date(2014, 0, 2);
+            var diff = new DateDifference(firstDate, secondDate);
+            var months = diff.Days(true);
+
+            expect(months).toBe(2);
         });
 
         it('Should return 100 days with dates between 01/01/2014 and 10/04/2014 including last day', function () {
@@ -210,6 +246,60 @@
             var days = diff.Days(true);
 
             expect(days).toBe(23474);
+        });
+
+        it('Should return 78 days with dates between 25/09/1988 and 12/12/1988 excluding last day', function () {
+            var firstDate = new Date(1988, 8, 25);
+            var secondDate = new Date(1988, 11, 12);
+            var diff = new DateDifference(firstDate, secondDate);
+            var days = diff.Days(false);
+
+            expect(days).toBe(78);
+        });
+
+        it('Should return 79 days with dates between 25/09/1988 and 12/12/1988 including last day', function () {
+            var firstDate = new Date(1988, 8, 25);
+            var secondDate = new Date(1988, 11, 12);
+            var diff = new DateDifference(firstDate, secondDate);
+            var days = diff.Days(true);
+
+            expect(days).toBe(79);
+        });
+
+        it('Should return 33 days with dates between 29/02/2012 and 01/04/2012 including last day', function () {
+            var firstDate = new Date(2012, 1, 29);
+            var secondDate = new Date(2012, 3, 1);
+            var diff = new DateDifference(firstDate, secondDate);
+            var days = diff.Days(true);
+
+            expect(days).toBe(33);
+        });
+
+        it('Should return 32 days with dates between 29/02/2014 and 01/04/2014 excluding last day', function () {
+            var firstDate = new Date(2012, 1, 29);
+            var secondDate = new Date(2012, 3, 1);
+            var diff = new DateDifference(firstDate, secondDate);
+            var days = diff.Days(false);
+
+            expect(days).toBe(32);
+        });
+
+        it('Should return 1037 days with dates between 20/01/1961 and 22/11/1963 including last day', function () {
+            var firstDate = new Date(1961, 0, 20);
+            var secondDate = new Date(1963, 10, 22);
+            var diff = new DateDifference(firstDate, secondDate);
+            var days = diff.Days(true);
+
+            expect(days).toBe(1037);
+        });
+
+        it('Should return 1036 days with dates between 20/01/1961 and 22/11/1963 excluding last day', function () {
+            var firstDate = new Date(1961, 0, 20);
+            var secondDate = new Date(1963, 10, 22);
+            var diff = new DateDifference(firstDate, secondDate);
+            var days = diff.Days(false);
+
+            expect(days).toBe(1036);
         });
     });
 });
