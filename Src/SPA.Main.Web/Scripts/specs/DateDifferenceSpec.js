@@ -191,6 +191,15 @@
 
             expect(months).toBe(171);
         });
+
+        it('Should return 1371 months with dates between 01/01/1900 and 27/04/2014', function () {
+            var firstDate = new Date(1900, 0, 1);
+            var secondDate = new Date(2014, 3, 27);
+            var diff = new DateDifference(firstDate, secondDate);
+            var months = diff.Months();
+
+            expect(months).toBe(1371);
+        });
     });
 
     describe('Calculation difference in days with two dates', function () {
@@ -466,6 +475,80 @@
             var minutes = diff.Minutes(false);
 
             expect(minutes).toBe(7521120);
+        });
+    });
+
+    describe('Calculation difference in seconds with two dates', function () {
+        it('Should return 451526400 seconds with dates between 01/01/2000 and 22/04/2014 including last day', function () {
+            var firstDate = new Date(2000, 0, 1);
+            var secondDate = new Date(2014, 3, 22);
+            var diff = new DateDifference(firstDate, secondDate);
+            var seconds = diff.Seconds(true);
+
+            expect(seconds).toBe(451526400);
+        });
+
+        it('Should return 451440000 seconds with dates between 01/01/2000 and 22/04/2014 excluding last day', function () {
+            var firstDate = new Date(2000, 0, 1);
+            var secondDate = new Date(2014, 3, 22);
+            var diff = new DateDifference(firstDate, secondDate);
+            var seconds = diff.Seconds(false);
+
+            expect(seconds).toBe(451440000);
+        });
+
+        it('Should return 1398211200 seconds with dates between 01/01/1970 and 22/04/2014 including last day', function () {
+            var firstDate = new Date(1970, 0, 1);
+            var secondDate = new Date(2014, 3, 22);
+            var diff = new DateDifference(firstDate, secondDate);
+            var minutes = diff.Seconds(true);
+
+            expect(minutes).toBe(1398211200);
+        });
+
+        it('Should return 1398124800 seconds with dates between 01/01/1970 and 22/04/2014 excluding last day', function () {
+            var firstDate = new Date(1970, 0, 1);
+            var secondDate = new Date(2014, 3, 22);
+            var diff = new DateDifference(firstDate, secondDate);
+            var minutes = diff.Seconds(false);
+
+            expect(minutes).toBe(1398124800);
+        });
+
+        it('Should return 691200 seconds with dates between 14/04/2014 and 21/04/2014 including last day', function () {
+            var firstDate = new Date(2014, 3, 14);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var minutes = diff.Seconds(true);
+
+            expect(minutes).toBe(691200);
+        });
+
+        it('Should return 604800 seconds with dates between 14/04/2014 and 21/04/2014 excluding last day', function () {
+            var firstDate = new Date(2014, 3, 14);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateDifference(firstDate, secondDate);
+            var minutes = diff.Seconds(false);
+
+            expect(minutes).toBe(604800);
+        });
+
+        it('Should return 3607632000 seconds with dates between 01/01/1900 and 27/04/2014 including last day', function () {
+            var firstDate = new Date(1900, 0, 1);
+            var secondDate = new Date(2014, 3, 27);
+            var diff = new DateDifference(firstDate, secondDate);
+            var minutes = diff.Seconds(true);
+
+            expect(minutes).toBe(3607632000);
+        });
+
+        it('Should return 3607545600 seconds with dates between 01/01/1900 and 27/04/2014 excluding last day', function () {
+            var firstDate = new Date(1900, 0, 1);
+            var secondDate = new Date(2014, 3, 27);
+            var diff = new DateDifference(firstDate, secondDate);
+            var minutes = diff.Seconds(false);
+
+            expect(minutes).toBe(3607545600);
         });
     });
 });

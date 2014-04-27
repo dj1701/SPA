@@ -11,31 +11,31 @@
 
     self.Years = function () {
         var difference = getDifference();
-        var years = Math.floor((difference / oneDay) % 1.5 == 1 ? (difference / oneDay) / 365.24 : (difference / oneDay) / 365);
-        return years;
+        return Math.floor((difference / oneDay) % 1.5 == 1 ? (difference / oneDay) / 365.24 : (difference / oneDay) / 365);
     };
 
     self.Months = function () {
         var difference = getDifference();
-        var months = Math.floor(((difference / oneDay) / 365 * 12) % 1 == 0 ? ((difference / oneDay) / 365 * 12) : ((difference / oneDay) / 365.24 * 12));
-        return months;
+        return Math.floor(((difference / oneDay) / 365 * 12) % 1 == 0 ? ((difference / oneDay) / 365 * 12) : ((difference / oneDay) / 365.24 * 12));
     };
 
     self.Days = function (includeLastDay) {
         var difference = getDifference();
-        var days = Math.round(difference / oneDay) + (includeLastDay ? 1 : 0);
-        return days;
+        return Math.round(difference / oneDay) + (includeLastDay ? 1 : 0);
     };
 
     self.Hours = function (includeLastDay) {
         var difference = getDifference();
-        var hours = (Math.floor(difference / oneDay) * 24) + (includeLastDay ? 24 : 0);
-        return hours;
+        return (Math.floor(difference / oneDay) * 24) + (includeLastDay ? 24 : 0);
     };
 
     self.Minutes = function (includeLastDay) {
         var difference = getDifference();
-        var minutes = (Math.floor(difference / oneDay) * 24 + (includeLastDay ? 24 : 0)) * 60;
-        return minutes;
+        return (Math.floor(difference / oneDay) * 24 + (includeLastDay ? 24 : 0)) * 60;
+    };
+
+    self.Seconds = function (includeLastDay) {
+        var difference = getDifference();
+        return (Math.round(difference / oneDay) + (includeLastDay ? 1 : 0)) * 86400;
     };
 }
