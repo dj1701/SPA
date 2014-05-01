@@ -15,5 +15,10 @@ namespace SPA.Main.Web.Controllers
             ticker.Stop();
             return ticker.Time;
         }
+
+        public ActionResult DateDiff()
+        {
+            return View();
+        }
     }
 }

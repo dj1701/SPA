@@ -19,12 +19,11 @@ namespace SPA.Main.Web
         public void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
             routes.MapRoute(
-                "Default",                                              // Route name
-                "{controller}/{action}/{id}",                           // URL with parameters
-                new { controller = "Main", action = "Index", id = "" }  // Parameter defaults
-            );
+               "Default",                                              // Route name
+               "{controller}/{action}",                           // URL with parameters
+               new { controller = "Index", action = "Index" }
+           );
         }
     }
 }

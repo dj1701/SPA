@@ -1,0 +1,9 @@
+﻿.comparision_summary {
+    display: block;
+    padding: 20px 40px;
+    background: #ffc;
+    border: 1px solid #ccc;
+    margin-bottom: 25px;
+    position: relative;
+    color: #333;
+}
