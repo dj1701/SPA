@@ -139,7 +139,7 @@
     <Content Include="Scripts\jasmine\jasmine.css" />
     <Content Include="Scripts\jasmine\jasmine.js" />
     <Content Include="Scripts\jasmine\jasmine_favicon.png" />
-    <Content Include="Scripts\DateComparisons.js" />
+    <Content Include="Scripts\models\DateComparisons.js" />
     <Content Include="Scripts\libs\DateDifference.js" />
     <Content Include="Scripts\SpecDateDifferenceRunner.html" />
     <Content Include="Scripts\specs\DateDifferenceSpec.js" />
