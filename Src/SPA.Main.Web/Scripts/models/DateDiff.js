@@ -24,18 +24,22 @@
         return !((self.StartDate() === '' || self.EndDate() === '') || (typeof self.StartDate() === "undefined" || typeof self.EndDate() === "undefined"));
     };
 
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
     self.CalculateDates = function () {
         var startDate = parseDate(self.StartDate());
         var endDate = parseDate(self.EndDate());
         var includeLastDay = self.IncludeLastDay();
         var dateDiff = new DateComparison(startDate, endDate);
-        self.Years(dateDiff.Years());
-        self.Months(dateDiff.Months());
-        self.Weeks(dateDiff.Weeks());
-        self.Days(dateDiff.Days(includeLastDay));
-        self.Hours(dateDiff.Hours(includeLastDay));
-        self.Minutes(dateDiff.Minutes(includeLastDay));
-        self.Seconds(dateDiff.Seconds(includeLastDay));
+        self.Years(numberWithCommas(dateDiff.Years()));
+        self.Months(numberWithCommas(dateDiff.Months()));
+        self.Weeks(numberWithCommas(dateDiff.Weeks()));
+        self.Days(numberWithCommas(dateDiff.Days(includeLastDay)));
+        self.Hours(numberWithCommas(dateDiff.Hours(includeLastDay)));
+        self.Minutes(numberWithCommas(dateDiff.Minutes(includeLastDay)));
+        self.Seconds(numberWithCommas(dateDiff.Seconds(includeLastDay)));
     };
 
     self.ToggleDateComparisons = function () {
