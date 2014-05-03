@@ -19,6 +19,11 @@
         return Math.floor(((difference / oneDay) / 365 * 12) % 1 == 0 ? ((difference / oneDay) / 365 * 12) : ((difference / oneDay) / 365.24 * 12));
     };
 
+    self.Weeks = function () {
+        var difference = getDifference();
+        return Math.round(difference / oneDay) / 7 | 0;
+    };
+
     self.Days = function (includeLastDay) {
         var difference = getDifference();
         return Math.round(difference / oneDay) + (includeLastDay ? 1 : 0);

@@ -202,6 +202,98 @@
         });
     });
 
+    describe('Calculation difference in weeks with two dates', function() {
+        it('Should return 2310 weeks with dates between 01/01/1970 and 16/04/2014', function () {
+            var firstDate = new Date(1970, 0, 1);
+            var secondDate = new Date(2014, 3, 16);
+            var diff = new DateComparison(firstDate, secondDate);
+            var weeks = diff.Weeks();
+
+            expect(weeks).toBe(2310);
+        });
+
+        it('Should return 2311 weeks with dates between 01/01/1970 and 17/04/2014', function () {
+            var firstDate = new Date(1970, 0, 1);
+            var secondDate = new Date(2014, 3, 17);
+            var diff = new DateComparison(firstDate, secondDate);
+            var weeks = diff.Weeks();
+
+            expect(weeks).toBe(2311);
+        });
+        
+        it('Should return 5965 weeks with dates between 01/01/1900 and 03/05/2014', function () {
+            var firstDate = new Date(1900, 0, 1);
+            var secondDate = new Date(2014, 4, 3);
+            var diff = new DateComparison(firstDate, secondDate);
+            var weeks = diff.Weeks();
+
+            expect(weeks).toBe(5965);
+        });
+
+        it('Should return 3365 weeks with dates between 31/10/1949 and 01/05/2014', function () {
+            var firstDate = new Date(1949, 9, 31);
+            var secondDate = new Date(2014, 4, 1);
+            var diff = new DateComparison(firstDate, secondDate);
+            var weeks = diff.Weeks();
+
+            expect(weeks).toBe(3365);
+        });
+
+        it('Should return 148 weeks with dates between 20/01/1961 and 22/11/1963', function () {
+            var firstDate = new Date(1961, 0, 20);
+            var secondDate = new Date(1963, 10, 22);
+            var diff = new DateComparison(firstDate, secondDate);
+            var weeks = diff.Weeks();
+
+            expect(weeks).toBe(148);
+        });
+
+        it('Should return 3355 weeks with dates between 31/12/1949 and 21/04/2014', function () {
+            var firstDate = new Date(1949, 11, 31);
+            var secondDate = new Date(2014, 3, 21);
+            var diff = new DateComparison(firstDate, secondDate);
+            var weeks = diff.Weeks();
+
+            expect(weeks).toBe(3355);
+        });
+
+        it('Should return 882 weeks with dates between 31/12/1969 and 30/12/1986', function () {
+            var firstDate = new Date(1969, 11, 31);
+            var secondDate = new Date(1986, 11, 30);
+            var diff = new DateComparison(firstDate, secondDate);
+            var weeks = diff.Weeks();
+
+            expect(weeks).toBe(886);
+        });
+
+        it('Should return 14 weeks with dates between 01/01/2014 and 10/04/2014', function () {
+            var firstDate = new Date(2014, 0, 1);
+            var secondDate = new Date(2014, 3, 10);
+            var diff = new DateComparison(firstDate, secondDate);
+            var weeks = diff.Weeks();
+
+            expect(weeks).toBe(14);
+        });
+
+        it('Should return 2608 weeks with dates between 30/03/1964 and 30/03/2014', function () {
+            var firstDate = new Date(1964, 2, 30);
+            var secondDate = new Date(2014, 2, 30);
+            var diff = new DateComparison(firstDate, secondDate);
+            var weeks = diff.Weeks();
+
+            expect(weeks).toBe(2608);
+        });
+
+        it('Should return 0 weeks with dates between 01/01/2014 and 02/01/2014', function () {
+            var firstDate = new Date(2014, 0, 1);
+            var secondDate = new Date(2014, 0, 2);
+            var diff = new DateComparison(firstDate, secondDate);
+            var weeks = diff.Weeks();
+
+            expect(weeks).toBe(0);
+        });
+    });
+
     describe('Calculation difference in days with two dates', function () {
         it('Should return 1 day with dates between 01/01/2014 and 02/01/2014 excluding last day', function () {
             var firstDate = new Date(2014, 0, 1);

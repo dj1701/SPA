@@ -6,6 +6,7 @@
     self.EndDate = ko.observable();
     self.Years = ko.observable();
     self.Months = ko.observable();
+    self.Weeks = ko.observable();
     self.Days = ko.observable();
     self.Hours = ko.observable();
     self.Minutes = ko.observable();
@@ -30,6 +31,7 @@
         var dateDiff = new DateComparison(startDate, endDate);
         self.Years(dateDiff.Years());
         self.Months(dateDiff.Months());
+        self.Weeks(dateDiff.Weeks());
         self.Days(dateDiff.Days(includeLastDay));
         self.Hours(dateDiff.Hours(includeLastDay));
         self.Minutes(dateDiff.Minutes(includeLastDay));
@@ -50,6 +52,7 @@
         self.EndDate('');
         self.Years('');
         self.Months('');
+        self.Weeks('');
         self.Days('');
         self.Hours('');
         self.Minutes('');
