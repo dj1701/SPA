@@ -1,4 +1,4 @@
-﻿function DateDifference(firstDate, secondDate) {
+﻿function DateComparison(firstDate, secondDate) {
     var self = this;
     self.firstDate = firstDate;
     self.secondDate = secondDate;

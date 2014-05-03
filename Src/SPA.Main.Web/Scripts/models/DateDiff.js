@@ -27,7 +27,7 @@
         var startDate = parseDate(self.StartDate());
         var endDate = parseDate(self.EndDate());
         var includeLastDay = self.IncludeLastDay();
-        var dateDiff = new DateDifference(startDate, endDate);
+        var dateDiff = new DateComparison(startDate, endDate);
         self.Years(dateDiff.Years());
         self.Months(dateDiff.Months());
         self.Days(dateDiff.Days(includeLastDay));
