@@ -1,4 +1,6 @@
-﻿function DateComparison(firstDate, secondDate) {
+﻿var shado = shado || {};
+
+shado.DateCompare = function (firstDate, secondDate) {
     var self = this;
     self.firstDate = firstDate;
     self.secondDate = secondDate;

@@ -140,7 +140,7 @@
     <Content Include="Scripts\jasmine\jasmine.js" />
     <Content Include="Scripts\jasmine\jasmine_favicon.png" />
     <Content Include="Scripts\models\DateDiff.js" />
-    <Content Include="Scripts\libs\DateComparison.js" />
+    <Content Include="Scripts\libs\shado.js" />
     <Content Include="Scripts\SpecDateComparisonRunner.html" />
     <Content Include="Scripts\specs\DateComparisonSpec.js" />
     <Content Include="Scripts\todo.js" />
