@@ -1,14 +1,13 @@
 ﻿describe('Clock refresher fake ajax callback', function () {
 
     beforeEach(function () {
-        jasmine.Clock.install();
-        jasmine.Clock.uninstall();
+        jasmine.clock().install();
         AjaxHelper.get.isSpy = false;
     });
 
     afterEach(function () {
-        jasmine.Clock.reset();
-        jasmine.Clock.uninstallMock();
+        jasmine.clock().uninstall();
+       
     });
 
     it('Should receive a successful response', function () {
@@ -19,15 +18,15 @@
         };
         var clockRefresher = new ClockRefresher(null);
 
-        spyOn(AjaxHelper, 'post').andCallFake(function (url, data, callback) {
+        spyOn(AjaxHelper, 'post').and.callFake(function (url, data, callback) {
             callback.checkForInformation();
         });
 
         clockRefresher.sendRequest(clockRefresherCallbacks);
-        jasmine.Clock.tick(refreshRateInSeconds * 1000);
+        jasmine.clock().tick(refreshRateInSeconds * 1000);
 
-        expect(clockRefresherCallbacks.checkForInformation.callCount).toBe(1);
-        expect(AjaxHelper.post.callCount).toBe(1);
+        expect(clockRefresherCallbacks.checkForInformation.calls.count()).toBe(1);
+        expect(AjaxHelper.post.calls.count()).toBe(1);
     });
 
     it('Should receive a error callback response', function () {
@@ -39,12 +38,12 @@
 
         var clockRefresher = new ClockRefresher(null);
 
-        spyOn(AjaxHelper, 'post').andCallFake(function (url, data, callback) {
+        spyOn(AjaxHelper, 'post').and.CallFake(function (url, data, callback) {
             callback.logError();
         });
 
         clockRefresher.sendRequest(clockRefresherCallbacks);
-        jasmine.Clock.tick(refreshRateInSeconds * 1000);
+        jasmine.clock().tick(refreshRateInSeconds * 1000);
 
         expect(clockRefresherCallbacks.logError.callCount).toBe(1);
         expect(AjaxHelper.post.callCount).toBe(1);
