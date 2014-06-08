@@ -1,8 +1,8 @@
 ﻿describe('Clock refresher fake ajax callback', function () {
 
     beforeEach(function () {
-        jasmine.Clock.installMock();
-        jasmine.Clock.useMock();
+        jasmine.Clock.install();
+        jasmine.Clock.uninstall();
         AjaxHelper.get.isSpy = false;
     });
 

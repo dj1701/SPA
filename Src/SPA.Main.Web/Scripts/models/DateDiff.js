@@ -1,4 +1,4 @@
-﻿function DateComparisions() {
+﻿function DateDiff() {
     var self = this;
 
     self.ShowDateComparisons = ko.observable(false);
@@ -65,5 +65,5 @@
 };
 
 $(document).ready(function () {
-    ko.applyBindings(new DateComparisions());
+    ko.applyBindings(new DateDiff());
 });

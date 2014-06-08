@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using SPA.Main.Web.App_Start;
 using SPA.MainUI.Web;
 
 namespace SPA.Main.Web
@@ -14,6 +15,7 @@ namespace SPA.Main.Web
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            AutofacConfig.RegisterDependencies();
         }
 
         public void RegisterRoutes(RouteCollection routes)

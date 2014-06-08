@@ -4,36 +4,42 @@ using Timer = System.Timers.Timer;
 
 namespace SPA.Main.RefreshTimer
 {
-    public class Ticker
+    public interface ITicker
     {
-        private readonly Timer timer = new Timer();
-        private int hour;
-        private int minute;
-        private int second;
+        void Start();
+        void Stop();
+    }
+    
+    public class Ticker : ITicker
+    {
+        private readonly Timer _timer = new Timer();
+        private int _hour;
+        private int _minute;
+        private int _second;
 
         public string Time { get; private set; }
 
         public void Start()
         {
-            timer.Elapsed += new ElapsedEventHandler(TimerElapsed);
-            timer.Interval = 1000;
-            timer.Enabled = true;
-            timer.Start();
+            _timer.Elapsed += new ElapsedEventHandler(TimerElapsed);
+            _timer.Interval = 1000;
+            _timer.Enabled = true;
+            _timer.Start();
         }
 
         private void TimerElapsed(object sender, ElapsedEventArgs e)
         {
-            hour = e.SignalTime.Hour;
-            minute = e.SignalTime.Minute;
-            second = e.SignalTime.Second;
-            Time = String.Format("{0:D2}:{1:D2}", hour, minute);
+            _hour = e.SignalTime.Hour;
+            _minute = e.SignalTime.Minute;
+            _second = e.SignalTime.Second;
+            Time = String.Format("{0:D2}:{1:D2}", _hour, _minute);
         }
 
         public void Stop()
         {
-            timer.Stop();
-            timer.Elapsed -= TimerElapsed;
-            timer.Enabled = false;
+            _timer.Stop();
+            _timer.Elapsed -= TimerElapsed;
+            _timer.Enabled = false;
         }
     }
 }

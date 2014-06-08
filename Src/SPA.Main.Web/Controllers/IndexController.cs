@@ -6,14 +6,25 @@ namespace SPA.Main.Web.Controllers
 {
     public class IndexController : Controller
     {
+        private readonly Ticker _ticker;
+
+        public IndexController()
+        {
+
+        }
+
+        public IndexController(Ticker ticker)
+        {
+            _ticker = ticker;
+        }
+
         [HttpGet]
         public string Index()
         {
-            var ticker = new Ticker();
-            ticker.Start();
+            _ticker.Start();
             Thread.Sleep(2000);
-            ticker.Stop();
-            return ticker.Time;
+            _ticker.Stop();
+            return _ticker.Time;
         }
 
         public ActionResult DateDiff()

@@ -35,3 +35,4 @@ tools/NUnit/TestResult.xml
 docs/~*
 src/UpgradeLog.*
 src/_UpgradeReport_Files/
+packages/*
