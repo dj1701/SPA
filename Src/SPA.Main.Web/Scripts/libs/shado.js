@@ -1,48 +1,46 @@
-﻿var shado = shado || {};
+﻿Shado = (function() {
 
-shado.DateCompare = function (firstDate, secondDate) {
-    var self = this;
-    self.firstDate = firstDate;
-    self.secondDate = secondDate;
+    var DateCompare = function(firstDate, secondDate) {
+        this.firstDate = firstDate;
+        this.secondDate = secondDate;
+        this.oneDay = 1000 * 60 * 60 * 24;
 
-    var oneDay = 1000 * 60 * 60 * 24;
-
-    var getDifference = function() {
-        return self.secondDate - self.firstDate;
+        this.getDifference = function() {
+            return this.secondDate - this.firstDate;
+        };
     };
 
-    self.Years = function () {
-        var difference = getDifference();
-        return Math.floor((difference / oneDay) % 1.5 == 1 ? (difference / oneDay) / 365.24 : (difference / oneDay) / 365);
+    DateCompare.prototype = {
+        Years: function () {
+            var difference = this.getDifference();
+            return Math.floor((difference / this.oneDay) % 1.5 == 1 ? (difference / this.oneDay) / 365.24 : (difference / this.oneDay) / 365);
+        },
+        Months: function () {
+            var difference = this.getDifference();
+            return Math.floor(((difference / this.oneDay) / 365 * 12) % 1 == 0 ? ((difference / this.oneDay) / 365 * 12) : ((difference / this.oneDay) / 365.24 * 12));
+        },
+        Weeks: function () {
+            var difference = this.getDifference();
+            return Math.round(difference / this.oneDay) / 7 | 0;
+        },
+        Days: function (includeLastDay) {
+            var difference = this.getDifference();
+            return Math.round(difference / this.oneDay) + (includeLastDay ? 1 : 0);
+        },
+        Hours: function (includeLastDay) {
+            var difference = this.getDifference();
+            return (Math.floor(difference / this.oneDay) * 24) + (includeLastDay ? 24 : 0);
+        },
+        Minutes: function (includeLastDay) {
+            var difference = this.getDifference();
+            return (Math.floor(difference / this.oneDay) * 24 + (includeLastDay ? 24 : 0)) * 60;
+        },
+        Seconds: function (includeLastDay) {
+            var difference = this.getDifference();
+            return (Math.round(difference / this.oneDay) + (includeLastDay ? 1 : 0)) * 86400;
+        },
     };
-
-    self.Months = function () {
-        var difference = getDifference();
-        return Math.floor(((difference / oneDay) / 365 * 12) % 1 == 0 ? ((difference / oneDay) / 365 * 12) : ((difference / oneDay) / 365.24 * 12));
+    return {
+       DateCompare : DateCompare 
     };
-
-    self.Weeks = function () {
-        var difference = getDifference();
-        return Math.round(difference / oneDay) / 7 | 0;
-    };
-
-    self.Days = function (includeLastDay) {
-        var difference = getDifference();
-        return Math.round(difference / oneDay) + (includeLastDay ? 1 : 0);
-    };
-
-    self.Hours = function (includeLastDay) {
-        var difference = getDifference();
-        return (Math.floor(difference / oneDay) * 24) + (includeLastDay ? 24 : 0);
-    };
-
-    self.Minutes = function (includeLastDay) {
-        var difference = getDifference();
-        return (Math.floor(difference / oneDay) * 24 + (includeLastDay ? 24 : 0)) * 60;
-    };
-
-    self.Seconds = function (includeLastDay) {
-        var difference = getDifference();
-        return (Math.round(difference / oneDay) + (includeLastDay ? 1 : 0)) * 86400;
-    };
-}
+})();

@@ -32,7 +32,7 @@
         var startDate = parseDate(self.StartDate());
         var endDate = parseDate(self.EndDate());
         var includeLastDay = self.IncludeLastDay();
-        var dateDiff = new shado.DateCompare(startDate, endDate);
+        var dateDiff = new Shado.DateCompare(startDate, endDate);
         self.Years(numberWithCommas(dateDiff.Years()));
         self.Months(numberWithCommas(dateDiff.Months()));
         self.Weeks(numberWithCommas(dateDiff.Weeks()));
