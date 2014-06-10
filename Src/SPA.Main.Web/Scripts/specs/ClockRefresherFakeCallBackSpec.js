@@ -38,15 +38,15 @@
 
         var clockRefresher = new ClockRefresher(null);
 
-        spyOn(AjaxHelper, 'post').and.CallFake(function (url, data, callback) {
+        spyOn(AjaxHelper, 'post').and.callFake(function (url, data, callback) {
             callback.logError();
         });
 
         clockRefresher.sendRequest(clockRefresherCallbacks);
         jasmine.clock().tick(refreshRateInSeconds * 1000);
 
-        expect(clockRefresherCallbacks.logError.callCount).toBe(1);
-        expect(AjaxHelper.post.callCount).toBe(1);
+        expect(clockRefresherCallbacks.logError.calls.count()).toBe(1);
+        expect(AjaxHelper.post.calls.count()).toBe(1);
         expect(clockRefresherCallbacks.checkForInformation).not.toHaveBeenCalled();
     });
 
