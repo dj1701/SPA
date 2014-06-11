@@ -1,6 +1,11 @@
 ﻿describe('Clock Refresher Data', function () {
+    var originalTimeout;
+    beforeEach(function () {
+        originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+    });
 
-    it('Should make a real ajax call response with time data response', function () {
+    it('Should make a real ajax call response with time data response', function (done) {
         var time = new Date();
         var hours = time.getHours();
         var minutes = time.getMinutes();
@@ -8,21 +13,17 @@
         var expectedResult = pad(hours) + ':' + pad(minutes);
         var foo = new ClockRefresher(null);
 
-        runs(function() {
-            AjaxHelper.get('/Index/Index', null, foo);
-        });
-
-        waitsFor(function () {
-            return foo.result.length > 0;
-        }, "Callback for result from ajax call not set", 6000);
-
-        runs(function () {
+        AjaxHelper.get('/Index', null, foo);
+        setTimeout(function () {
+            done();
             expect(foo.result).toBe(expectedResult);
-        });
+        }, 5000);
+    });
 
+    afterEach(function () {
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     });
 
     //Helper function
     function pad(n) { return ("0" + n).slice(-2); }
-
 });

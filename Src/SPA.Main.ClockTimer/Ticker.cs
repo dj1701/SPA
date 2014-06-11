@@ -8,6 +8,7 @@ namespace SPA.Main.RefreshTimer
     {
         void Start();
         void Stop();
+        string Time { get; set; }
     }
     
     public class Ticker : ITicker
@@ -17,7 +18,7 @@ namespace SPA.Main.RefreshTimer
         private int _minute;
         private int _second;
 
-        public string Time { get; private set; }
+        public string Time { get; set; }
 
         public void Start()
         {

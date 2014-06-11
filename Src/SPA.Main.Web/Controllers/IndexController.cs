@@ -6,14 +6,9 @@ namespace SPA.Main.Web.Controllers
 {
     public class IndexController : Controller
     {
-        private readonly Ticker _ticker;
+        private readonly ITicker _ticker;
 
-        public IndexController()
-        {
-
-        }
-
-        public IndexController(Ticker ticker)
+        public IndexController(ITicker ticker)
         {
             _ticker = ticker;
         }
