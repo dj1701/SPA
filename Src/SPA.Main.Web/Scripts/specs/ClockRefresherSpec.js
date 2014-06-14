@@ -10,7 +10,7 @@
         var hours = time.getHours();
         var minutes = time.getMinutes();
         var seconds = time.getSeconds();
-        var expectedResult = pad(hours) + ':' + pad(minutes);
+        var expectedResult = pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
         var foo = new ClockRefresher(null);
 
         AjaxHelper.get('/Index', null, foo);

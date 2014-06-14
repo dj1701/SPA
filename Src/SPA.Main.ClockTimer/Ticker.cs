@@ -23,7 +23,7 @@ namespace SPA.Main.RefreshTimer
         public void Start()
         {
             _timer.Elapsed += new ElapsedEventHandler(TimerElapsed);
-            _timer.Interval = 1000;
+            _timer.Interval = 500;
             _timer.Enabled = true;
             _timer.Start();
         }
@@ -33,7 +33,7 @@ namespace SPA.Main.RefreshTimer
             _hour = e.SignalTime.Hour;
             _minute = e.SignalTime.Minute;
             _second = e.SignalTime.Second;
-            Time = String.Format("{0:D2}:{1:D2}", _hour, _minute);
+            Time = String.Format("{0:D2}:{1:D2}:{2:D2}", _hour, _minute, _second);
         }
 
         public void Stop()
