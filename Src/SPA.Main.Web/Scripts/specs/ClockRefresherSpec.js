@@ -17,7 +17,7 @@
         setTimeout(function () {
             done();
             expect(foo.result).toBe(expectedResult);
-        }, 5000);
+        }, 7000);
     });
 
     afterEach(function () {

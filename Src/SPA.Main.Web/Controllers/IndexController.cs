@@ -17,7 +17,7 @@ namespace SPA.Main.Web.Controllers
         public string Index()
         {
             _ticker.Start();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             _ticker.Stop();
             return _ticker.Time;
         }

@@ -23,7 +23,7 @@ namespace SPA.Main.RefreshTimer
         public void Start()
         {
             _timer.Elapsed += new ElapsedEventHandler(TimerElapsed);
-            _timer.Interval = 500;
+            _timer.Interval = 200;
             _timer.Enabled = true;
             _timer.Start();
         }
