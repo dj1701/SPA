@@ -376,7 +376,7 @@
             expect(days).toBe(33);
         });
 
-        it('Should return 32 days with dates between 29/02/2014 and 01/04/2014 excluding last day', function () {
+        it('Should return 32 days with dates between 29/02/2012 and 01/04/2012 excluding last day', function () {
             var firstDate = new Date(2012, 1, 29);
             var secondDate = new Date(2012, 3, 1);
             var diff = new Shado.DateCompare(firstDate, secondDate);
