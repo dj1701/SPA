@@ -202,7 +202,7 @@
         });
     });
 
-    describe('Calculation difference in weeks with two dates', function() {
+    describe('Calculation difference in weeks with two dates', function () {
         it('Should return 2310 weeks with dates between 01/01/1970 and 16/04/2014', function () {
             var firstDate = new Date(1970, 0, 1);
             var secondDate = new Date(2014, 3, 16);
@@ -220,7 +220,7 @@
 
             expect(weeks).toBe(2311);
         });
-        
+
         it('Should return 5965 weeks with dates between 01/01/1900 and 03/05/2014', function () {
             var firstDate = new Date(1900, 0, 1);
             var secondDate = new Date(2014, 4, 3);
@@ -641,6 +641,44 @@
             var minutes = diff.Seconds(false);
 
             expect(minutes).toBe(3607545600);
+        });
+    });
+
+    describe('Invalid Parameters', function () {
+        it('Should raise exception if both parameters is not of type Date', function () {
+            var firstDate = new Object();
+            var secondDate = new Object();
+
+            expect(function () {
+                var x = new Shado.DateCompare(firstDate, secondDate);
+            }).toThrow(new Error('Parameters passed in are not Date objects'));
+        });
+
+        it('Should raise exception if one parameter is not of type Date', function () {
+            var firstDate = new Object();
+            var secondDate = new Date(2014, 3, 27);
+
+            expect(function () {
+                var x = new Shado.DateCompare(firstDate, secondDate);
+            }).toThrow(new Error('Parameters passed in are not Date objects'));
+        });
+
+        it('Should raise exception if both parameters is null', function () {
+            var firstDate = null;
+            var secondDate = null;
+
+            expect(function () {
+                var x = new Shado.DateCompare(firstDate, secondDate);
+            }).toThrow(new Error('Parameters passed in are not Date objects'));
+        });
+
+        it('Should raise exception if one parameter is string', function () {
+            var firstDate = "";
+            var secondDate = new Date(2014, 3, 27);
+
+            expect(function () {
+                var x = new Shado.DateCompare(firstDate, secondDate);
+            }).toThrow(new Error('Parameters passed in are not Date objects'));
         });
     });
 });

@@ -1,6 +1,9 @@
 ﻿Shado = (function() {
 
     var DateCompare = function(firstDate, secondDate) {
+
+        if (Object.prototype.toString.call(firstDate) !== "[object Date]" || Object.prototype.toString.call(secondDate) !== "[object Date]") throw new Error('Parameters passed in are not Date objects');
+
         this.firstDate = firstDate;
         this.secondDate = secondDate;
         this.oneDay = 1000 * 60 * 60 * 24;
