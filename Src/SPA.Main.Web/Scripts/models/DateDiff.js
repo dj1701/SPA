@@ -32,14 +32,14 @@
         var startDate = parseDate(self.StartDate());
         var endDate = parseDate(self.EndDate());
         var includeLastDay = self.IncludeLastDay();
-        var dateDiff = new Shado.DateCompare(startDate, endDate);
-        self.Years(numberWithCommas(dateDiff.Years()));
-        self.Months(numberWithCommas(dateDiff.Months()));
-        self.Weeks(numberWithCommas(dateDiff.Weeks()));
-        self.Days(numberWithCommas(dateDiff.Days(includeLastDay)));
-        self.Hours(numberWithCommas(dateDiff.Hours(includeLastDay)));
-        self.Minutes(numberWithCommas(dateDiff.Minutes(includeLastDay)));
-        self.Seconds(numberWithCommas(dateDiff.Seconds(includeLastDay)));
+        Shado.Date.Compare(startDate, endDate);
+        self.Years(numberWithCommas(Shado.Date.Years()));
+        self.Months(numberWithCommas(Shado.Date.Months()));
+        self.Weeks(numberWithCommas(Shado.Date.Weeks()));
+        self.Days(numberWithCommas(Shado.Date.Days(includeLastDay)));
+        self.Hours(numberWithCommas(Shado.Date.Hours(includeLastDay)));
+        self.Minutes(numberWithCommas(Shado.Date.Minutes(includeLastDay)));
+        self.Seconds(numberWithCommas(Shado.Date.Seconds(includeLastDay)));
     };
 
     self.ToggleDateComparisons = function () {
