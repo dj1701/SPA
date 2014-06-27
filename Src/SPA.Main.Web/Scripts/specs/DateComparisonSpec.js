@@ -644,6 +644,24 @@
         });
     });
 
+    describe('Invalid Leap Year', function() {
+        it('Should increment end date to 01/03/2015 if end date is 29/02/2015 - invalid leap year', function () {
+            var firstDate = new Date(2014, 5, 27);
+            var secondDate = new Date(2015, 1, 29);
+            Shado.Date.Compare(firstDate, secondDate);
+
+            expect(secondDate).toEqual(new Date(2015, 2, 1));
+        });
+        
+        it('Should increment start date to 01/03/2014 if start date is 29/02/2014 - invalid leap year', function () {
+            var firstDate = new Date(2014, 1, 29);
+            var secondDate = new Date(2014, 2, 1);
+            Shado.Date.Compare(firstDate, secondDate);
+
+            expect(firstDate).toEqual(new Date(2014, 2, 1));
+        });
+    });
+
     describe('Invalid Parameters', function () {
         it('Should raise exception if both parameters is not of type Date', function () {
             var firstDate = new Object();
