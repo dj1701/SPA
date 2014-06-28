@@ -1,14 +1,19 @@
 ﻿var Shado = {
     Date: {
+        createDate: function (str) {
+            var dateString = str.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+            return new Date( dateString[3], dateString[2]-1, dateString[1] );
+        },
+
         Compare: function (firstDate, secondDate) {
             var self = this;
 
-            if (Object.prototype.toString.call(firstDate) !== "[object Date]" || Object.prototype.toString.call(secondDate) !== "[object Date]") {
-                throw new Error('Parameters passed in are not Date objects');   
+            if (Object.prototype.toString.call(firstDate) !== "[object String]" || Object.prototype.toString.call(secondDate) !== "[object String]") {
+                throw new Error('Parameters are not of type string');
             }
 
-            self.firstDate = firstDate;
-            self.secondDate = secondDate;
+            self.firstDate = self.createDate(firstDate);
+            self.secondDate = self.createDate(secondDate);
             self.oneDay = 1000 * 60 * 60 * 24;
 
             self.getDifference = function () {

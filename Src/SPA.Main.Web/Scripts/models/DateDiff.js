@@ -13,13 +13,6 @@
     self.Seconds = ko.observable();
     self.IncludeLastDay = ko.observable();
 
-    var parseDate = function (str) {
-        var dy = parseInt(str.substring(0, 2));
-        var mon = parseInt(str.substring(3, 5));
-        var yr = parseInt(str.substring(6, 10));
-        return new Date(yr, mon - 1, dy);
-    };
-
     var validateDataIsNotUndefined = function() {
         return !((self.StartDate() === '' || self.EndDate() === '') || (typeof self.StartDate() === "undefined" || typeof self.EndDate() === "undefined"));
     };
@@ -29,8 +22,8 @@
     }
 
     self.CalculateDates = function () {
-        var startDate = parseDate(self.StartDate());
-        var endDate = parseDate(self.EndDate());
+        var startDate = self.StartDate();
+        var endDate = self.EndDate();
         var includeLastDay = self.IncludeLastDay();
         Shado.Date.Compare(startDate, endDate);
         self.Years(numberWithCommas(Shado.Date.Years()));

@@ -2,8 +2,8 @@
 
     describe('Calculate difference in years with two dates', function () {
         it('Should return 16 years with dates between 01/01/1970 and 01/01/1986', function () {
-            var firstDate = new Date(1970, 0, 1);
-            var secondDate = new Date(1986, 0, 1);
+            var firstDate = "01/01/1970";
+            var secondDate = "01/01/1986";
             Shado.Date.Compare(firstDate, secondDate);
             var years = Shado.Date.Years();
 
@@ -11,17 +11,17 @@
         });
 
         it('Should return 23 years with dates between 31/12/1990 and 29/03/2014', function () {
-            var firstDate = new Date(1990, 11, 31);
-            var secondDate = new Date(2014, 2, 29);
+            var firstDate = "31/11/1990";
+            var secondDate = "29/03/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var years = Shado.Date.Years();
-            
+
             expect(years).toBe(23);
         });
 
         it('Should return 23 years with dates between 01/01/1991 and 29/03/2014', function () {
-            var firstDate = new Date(1991, 0, 1);
-            var secondDate = new Date(2014, 2, 29);
+            var firstDate = "01/01/1991";
+            var secondDate = "29/03/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var years = Shado.Date.Years();
 
@@ -29,8 +29,8 @@
         });
 
         it('Should return 23 years with dates between 30/10/1990 and 29/03/2014', function () {
-            var firstDate = new Date(1990, 9, 30);
-            var secondDate = new Date(2014, 2, 29);
+            var firstDate = "30/10/1990";
+            var secondDate = "29/03/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var years = Shado.Date.Years();
 
@@ -38,8 +38,8 @@
         });
 
         it('Should return 16 years with dates between 30/04/1997 and 29/03/2014', function () {
-            var firstDate = new Date(1997, 3, 30);
-            var secondDate = new Date(2014, 2, 29);
+            var firstDate = "30/04/1997";
+            var secondDate = "29/03/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var years = Shado.Date.Years();
 
@@ -47,8 +47,8 @@
         });
 
         it('Should return 16 years with dates between 31/12/1969 and 01/01/1986', function () {
-            var firstDate = new Date(1969, 11, 31);
-            var secondDate = new Date(1986, 0, 1);
+            var firstDate = "31/12/1969";
+            var secondDate = "01/01/1986";
             Shado.Date.Compare(firstDate, secondDate);
             var years = Shado.Date.Years();
 
@@ -56,8 +56,8 @@
         });
 
         it('Should return 16 years with dates between 31/12/1969 and 30/12/1986', function () {
-            var firstDate = new Date(1969, 11, 31);
-            var secondDate = new Date(1986, 11, 30);
+            var firstDate = "31/12/1969";
+            var secondDate = "30/12/1986";
             Shado.Date.Compare(firstDate, secondDate);
             var years = Shado.Date.Years();
 
@@ -65,8 +65,8 @@
         });
 
         it('Should return 50 years with dates between 30/03/1964 and 30/03/2014', function () {
-            var firstDate = new Date(1964, 2, 30);
-            var secondDate = new Date(2014, 2, 30);
+            var firstDate = "30/03/1964";
+            var secondDate = "30/03/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var years = Shado.Date.Years();
 
@@ -74,8 +74,8 @@
         });
 
         it('Should return 24 years with dates between 30/11/1989 and 01/04/2014', function () {
-            var firstDate = new Date(1989, 10, 30);
-            var secondDate = new Date(2014, 3, 1);
+            var firstDate = "30/11/1989";
+            var secondDate = "01/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var years = Shado.Date.Years();
 
@@ -83,8 +83,8 @@
         });
 
         it('Should return 64 years with dates between 31/10/1949 and 01/05/2014', function () {
-            var firstDate = new Date(1949, 9, 31);
-            var secondDate = new Date(2014, 4, 1);
+            var firstDate = "31/10/1949";
+            var secondDate = "01/05/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var years = Shado.Date.Years();
 
@@ -92,8 +92,8 @@
         });
 
         it('Should return 1 year with dates between 01/01/2014 and 01/01/2015', function () {
-            var firstDate = new Date(2014, 0, 1);
-            var secondDate = new Date(2015, 0, 1);
+            var firstDate = "01/01/2014";
+            var secondDate = "01/01/2015";
             Shado.Date.Compare(firstDate, secondDate);
             var years = Shado.Date.Years();
 
@@ -101,8 +101,8 @@
         });
 
         it('Should return 2 years with dates between 01/01/2013 and 01/01/2015', function () {
-            var firstDate = new Date(2013, 0, 1);
-            var secondDate = new Date(2015, 0, 1);
+            var firstDate = "01/01/2013";
+            var secondDate = "01/01/2015";
             Shado.Date.Compare(firstDate, secondDate);
             var years = Shado.Date.Years();
 
@@ -112,8 +112,8 @@
 
     describe('Calculation difference in months with two dates', function () {
         it('Should return 12 months between 01/01/2014 and 01/01/2015', function () {
-            var firstDate = new Date(2014, 0, 1);
-            var secondDate = new Date(2015, 0, 1);
+            var firstDate = "01/01/2014";
+            var secondDate = "01/01/2015";
             Shado.Date.Compare(firstDate, secondDate);
             var months = Shado.Date.Months();
 
@@ -121,8 +121,8 @@
         });
 
         it('Should return 24 months between 01/01/2013 and 01/01/2015', function () {
-            var firstDate = new Date(2013, 0, 1);
-            var secondDate = new Date(2015, 0, 1);
+            var firstDate = "01/01/2013";
+            var secondDate = "01/01/2015";
             Shado.Date.Compare(firstDate, secondDate);
             var months = Shado.Date.Months();
 
@@ -130,8 +130,8 @@
         });
 
         it('Should return 7 months between 01/06/2014 and 01/01/2015', function () {
-            var firstDate = new Date(2014, 5, 1);
-            var secondDate = new Date(2015, 0, 1);
+            var firstDate = "01/06/2014";
+            var secondDate = "01/01/2015";
             Shado.Date.Compare(firstDate, secondDate);
             var months = Shado.Date.Months();
 
@@ -139,8 +139,8 @@
         });
 
         it('Should return 6 months between 01/07/2014 and 01/01/2015', function () {
-            var firstDate = new Date(2014, 6, 1);
-            var secondDate = new Date(2015, 0, 1);
+            var firstDate = "01/07/2014";
+            var secondDate = "01/01/2015";
             Shado.Date.Compare(firstDate, secondDate);
             var months = Shado.Date.Months();
 
@@ -148,8 +148,8 @@
         });
 
         it('Should return 203 months with dates between 31/12/1969 and 30/12/1986', function () {
-            var firstDate = new Date(1969, 11, 31);
-            var secondDate = new Date(1986, 11, 30);
+            var firstDate = "31/12/1969";
+            var secondDate = "30/12/1986";
             Shado.Date.Compare(firstDate, secondDate);
             var months = Shado.Date.Months();
 
@@ -157,8 +157,8 @@
         });
 
         it('Should return 773 months with dates between 31/10/1949 and 01/05/2014', function () {
-            var firstDate = new Date(1949, 9, 31);
-            var secondDate = new Date(2014, 4, 1);
+            var firstDate = "31/10/1949";
+            var secondDate = "01/05/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var months = Shado.Date.Months();
 
@@ -166,8 +166,8 @@
         });
 
         it('Should return 470 months with dates between 18/02/1975 and 21/04/2014', function () {
-            var firstDate = new Date(1975, 1, 18);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "18/02/1975";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var months = Shado.Date.Months();
 
@@ -175,8 +175,8 @@
         });
 
         it('Should return 531 months with dates between 01/01/1970 and 21/04/2014', function () {
-            var firstDate = new Date(1970, 0, 1);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "01/01/1970";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var months = Shado.Date.Months();
 
@@ -184,8 +184,8 @@
         });
 
         it('Should return 171 months with dates between 01/01/2000 and 21/04/2014', function () {
-            var firstDate = new Date(2000, 0, 1);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "01/01/2000";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var months = Shado.Date.Months();
 
@@ -193,8 +193,8 @@
         });
 
         it('Should return 1371 months with dates between 01/01/1900 and 27/04/2014', function () {
-            var firstDate = new Date(1900, 0, 1);
-            var secondDate = new Date(2014, 3, 27);
+            var firstDate = "01/01/1900";
+            var secondDate = "27/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var months = Shado.Date.Months();
 
@@ -204,8 +204,8 @@
 
     describe('Calculation difference in weeks with two dates', function () {
         it('Should return 2310 weeks with dates between 01/01/1970 and 16/04/2014', function () {
-            var firstDate = new Date(1970, 0, 1);
-            var secondDate = new Date(2014, 3, 16);
+            var firstDate = "01/01/1970";
+            var secondDate = "16/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var weeks = Shado.Date.Weeks();
 
@@ -213,8 +213,8 @@
         });
 
         it('Should return 2311 weeks with dates between 01/01/1970 and 17/04/2014', function () {
-            var firstDate = new Date(1970, 0, 1);
-            var secondDate = new Date(2014, 3, 17);
+            var firstDate = "01/01/1970";
+            var secondDate = "17/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var weeks = Shado.Date.Weeks();
 
@@ -222,8 +222,8 @@
         });
 
         it('Should return 5965 weeks with dates between 01/01/1900 and 03/05/2014', function () {
-            var firstDate = new Date(1900, 0, 1);
-            var secondDate = new Date(2014, 4, 3);
+            var firstDate = "01/01/1900";
+            var secondDate = "03/05/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var weeks = Shado.Date.Weeks();
 
@@ -231,8 +231,8 @@
         });
 
         it('Should return 3365 weeks with dates between 31/10/1949 and 01/05/2014', function () {
-            var firstDate = new Date(1949, 9, 31);
-            var secondDate = new Date(2014, 4, 1);
+            var firstDate = "31/10/1949";
+            var secondDate = "01/05/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var weeks = Shado.Date.Weeks();
 
@@ -240,8 +240,8 @@
         });
 
         it('Should return 148 weeks with dates between 20/01/1961 and 22/11/1963', function () {
-            var firstDate = new Date(1961, 0, 20);
-            var secondDate = new Date(1963, 10, 22);
+            var firstDate = "20/01/1961";
+            var secondDate = "22/11/1963";
             Shado.Date.Compare(firstDate, secondDate);
             var weeks = Shado.Date.Weeks();
 
@@ -249,8 +249,8 @@
         });
 
         it('Should return 3355 weeks with dates between 31/12/1949 and 21/04/2014', function () {
-            var firstDate = new Date(1949, 11, 31);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "31/12/1949";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var weeks = Shado.Date.Weeks();
 
@@ -258,8 +258,8 @@
         });
 
         it('Should return 882 weeks with dates between 31/12/1969 and 30/12/1986', function () {
-            var firstDate = new Date(1969, 11, 31);
-            var secondDate = new Date(1986, 11, 30);
+            var firstDate = "31/12/1969";
+            var secondDate = "30/12/1986";
             Shado.Date.Compare(firstDate, secondDate);
             var weeks = Shado.Date.Weeks();
 
@@ -267,8 +267,8 @@
         });
 
         it('Should return 14 weeks with dates between 01/01/2014 and 10/04/2014', function () {
-            var firstDate = new Date(2014, 0, 1);
-            var secondDate = new Date(2014, 3, 10);
+            var firstDate = "01/01/2014";
+            var secondDate = "10/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var weeks = Shado.Date.Weeks();
 
@@ -276,8 +276,8 @@
         });
 
         it('Should return 2608 weeks with dates between 30/03/1964 and 30/03/2014', function () {
-            var firstDate = new Date(1964, 2, 30);
-            var secondDate = new Date(2014, 2, 30);
+            var firstDate = "30/03/1964";
+            var secondDate = "30/03/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var weeks = Shado.Date.Weeks();
 
@@ -285,8 +285,8 @@
         });
 
         it('Should return 0 weeks with dates between 01/01/2014 and 02/01/2014', function () {
-            var firstDate = new Date(2014, 0, 1);
-            var secondDate = new Date(2014, 0, 2);
+            var firstDate = "01/01/2014";
+            var secondDate = "02/01/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var weeks = Shado.Date.Weeks();
 
@@ -296,8 +296,8 @@
 
     describe('Calculation difference in days with two dates', function () {
         it('Should return 1 day with dates between 01/01/2014 and 02/01/2014 excluding last day', function () {
-            var firstDate = new Date(2014, 0, 1);
-            var secondDate = new Date(2014, 0, 2);
+            var firstDate = "01/01/2014";
+            var secondDate = "02/01/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var days = Shado.Date.Days(false);
 
@@ -305,8 +305,8 @@
         });
 
         it('Should return 2 days with dates between 01/01/2014 and 02/01/2014 including last day', function () {
-            var firstDate = new Date(2014, 0, 1);
-            var secondDate = new Date(2014, 0, 2);
+            var firstDate = "01/01/2014";
+            var secondDate = "02/01/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var days = Shado.Date.Days(true);
 
@@ -314,8 +314,8 @@
         });
 
         it('Should return 100 days with dates between 01/01/2014 and 10/04/2014 including last day', function () {
-            var firstDate = new Date(2014, 0, 1);
-            var secondDate = new Date(2014, 3, 10);
+            var firstDate = "01/01/2014";
+            var secondDate = "10/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var days = Shado.Date.Days(true);
 
@@ -323,8 +323,8 @@
         });
 
         it('Should return 99 days with dates between 01/01/2014 and 10/04/2014 excluding last day', function () {
-            var firstDate = new Date(2014, 0, 1);
-            var secondDate = new Date(2014, 3, 10);
+            var firstDate = "01/01/2014";
+            var secondDate = "10/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var days = Shado.Date.Days(false);
 
@@ -332,8 +332,8 @@
         });
 
         it('Should return 23473 days with dates between 31/12/1949 and 07/04/2014 excluding last day', function () {
-            var firstDate = new Date(1949, 11, 31);
-            var secondDate = new Date(2014, 3, 7);
+            var firstDate = "31/12/1949";
+            var secondDate = "07/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var days = Shado.Date.Days(false);
 
@@ -341,8 +341,8 @@
         });
 
         it('Should return 23474 days with dates between 31/12/1949 and 07/04/2014 including last day', function () {
-            var firstDate = new Date(1949, 11, 31);
-            var secondDate = new Date(2014, 3, 7);
+            var firstDate = "31/12/1949";
+            var secondDate = "07/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var days = Shado.Date.Days(true);
 
@@ -350,8 +350,8 @@
         });
 
         it('Should return 78 days with dates between 25/09/1988 and 12/12/1988 excluding last day', function () {
-            var firstDate = new Date(1988, 8, 25);
-            var secondDate = new Date(1988, 11, 12);
+            var firstDate = "25/09/1988";
+            var secondDate = "12/12/1988";
             Shado.Date.Compare(firstDate, secondDate);
             var days = Shado.Date.Days(false);
 
@@ -359,8 +359,8 @@
         });
 
         it('Should return 79 days with dates between 25/09/1988 and 12/12/1988 including last day', function () {
-            var firstDate = new Date(1988, 8, 25);
-            var secondDate = new Date(1988, 11, 12);
+            var firstDate = "25/09/1988";
+            var secondDate = "12/12/1988";
             Shado.Date.Compare(firstDate, secondDate);
             var days = Shado.Date.Days(true);
 
@@ -368,8 +368,8 @@
         });
 
         it('Should return 33 days with dates between 29/02/2012 and 01/04/2012 including last day', function () {
-            var firstDate = new Date(2012, 1, 29);
-            var secondDate = new Date(2012, 3, 1);
+            var firstDate = "29/02/2012";
+            var secondDate = "01/04/2012";
             Shado.Date.Compare(firstDate, secondDate);
             var days = Shado.Date.Days(true);
 
@@ -377,8 +377,8 @@
         });
 
         it('Should return 32 days with dates between 29/02/2012 and 01/04/2012 excluding last day', function () {
-            var firstDate = new Date(2012, 1, 29);
-            var secondDate = new Date(2012, 3, 1);
+            var firstDate = "29/02/2012";
+            var secondDate = "01/04/2012";
             Shado.Date.Compare(firstDate, secondDate);
             var days = Shado.Date.Days(false);
 
@@ -386,8 +386,8 @@
         });
 
         it('Should return 1037 days with dates between 20/01/1961 and 22/11/1963 including last day', function () {
-            var firstDate = new Date(1961, 0, 20);
-            var secondDate = new Date(1963, 10, 22);
+            var firstDate = "20/01/1961";
+            var secondDate = "22/11/1963";
             Shado.Date.Compare(firstDate, secondDate);
             var days = Shado.Date.Days(true);
 
@@ -395,8 +395,8 @@
         });
 
         it('Should return 1036 days with dates between 20/01/1961 and 22/11/1963 excluding last day', function () {
-            var firstDate = new Date(1961, 0, 20);
-            var secondDate = new Date(1963, 10, 22);
+            var firstDate = "20/01/1961";
+            var secondDate = "22/11/1963";
             Shado.Date.Compare(firstDate, secondDate);
             var days = Shado.Date.Days(false);
 
@@ -406,8 +406,8 @@
 
     describe('Calculation difference in hours with two dates', function () {
         it('Should return 343368 hours with dates between 18/02/1975 and 21/04/2014 including last day', function () {
-            var firstDate = new Date(1975, 1, 18);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "18/02/1975";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var hours = Shado.Date.Hours(true);
 
@@ -415,8 +415,8 @@
         });
 
         it('Should return 343344 hours with dates between 18/02/1975 and 21/04/2014 excluding last day', function () {
-            var firstDate = new Date(1975, 1, 18);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "18/02/1975";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var hours = Shado.Date.Hours(false);
 
@@ -424,8 +424,8 @@
         });
 
         it('Should return 24 hours with dates between 01/01/2014 and 02/01/2014 excluding last day', function () {
-            var firstDate = new Date(2014, 0, 1);
-            var secondDate = new Date(2014, 0, 2);
+            var firstDate = "01/01/2014";
+            var secondDate = "02/01/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var hours = Shado.Date.Hours(false);
 
@@ -433,8 +433,8 @@
         });
 
         it('Should return 48 hours with dates between 01/01/2014 and 02/01/2014 including last day', function () {
-            var firstDate = new Date(2014, 0, 1);
-            var secondDate = new Date(2014, 0, 2);
+            var firstDate = "01/01/2014";
+            var secondDate = "02/01/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var hours = Shado.Date.Hours(true);
 
@@ -442,8 +442,8 @@
         });
 
         it('Should return 125376 hours with dates between 01/01/2000 and 21/04/2014 including last day', function () {
-            var firstDate = new Date(2000, 0, 1);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "01/01/2000";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var hours = Shado.Date.Hours(true);
 
@@ -451,8 +451,8 @@
         });
 
         it('Should return 125352 hours with dates between 01/01/2000 and 21/04/2014 excluding last day', function () {
-            var firstDate = new Date(2000, 0, 1);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "01/01/2000";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var hours = Shado.Date.Hours(false);
 
@@ -460,8 +460,8 @@
         });
 
         it('Should return 388344 hours with dates between 01/01/1970 and 21/04/2014 including last day', function () {
-            var firstDate = new Date(1970, 0, 1);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "01/01/1970";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var hours = Shado.Date.Hours(true);
 
@@ -469,8 +469,8 @@
         });
 
         it('Should return 388322 hours with dates between 01/01/1970 and 21/04/2014 excluding last day', function () {
-            var firstDate = new Date(1970, 0, 1);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "01/01/1970";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var hours = Shado.Date.Hours(false);
 
@@ -478,8 +478,8 @@
         });
 
         it('Should return 563664 hours with dates between 31/12/1949 and 21/04/2014 excluding last day', function () {
-            var firstDate = new Date(1949, 11, 31);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "31/12/1949";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var hours = Shado.Date.Hours(false);
 
@@ -487,8 +487,8 @@
         });
 
         it('Should return 563688 hours with dates between 31/12/1949 and 21/04/2014 including last day', function () {
-            var firstDate = new Date(1949, 11, 31);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "31/12/1949";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var hours = Shado.Date.Hours(true);
 
@@ -498,8 +498,8 @@
 
     describe('Calculation difference in minutes with two dates', function () {
         it('Should return 1051200 minutes between 01/01/2013 and 01/01/2015 excluding last day', function () {
-            var firstDate = new Date(2013, 0, 1);
-            var secondDate = new Date(2015, 0, 1);
+            var firstDate = "01/01/2013";
+            var secondDate = "01/01/2015";
             Shado.Date.Compare(firstDate, secondDate);
             var minutes = Shado.Date.Minutes(false);
 
@@ -507,8 +507,8 @@
         });
 
         it('Should return 1052640 minutes between 01/01/2013 and 01/01/2015 including last day', function () {
-            var firstDate = new Date(2013, 0, 1);
-            var secondDate = new Date(2015, 0, 1);
+            var firstDate = "01/01/2013";
+            var secondDate = "01/01/2015";
             Shado.Date.Compare(firstDate, secondDate);
             var minutes = Shado.Date.Minutes(true);
 
@@ -516,8 +516,8 @@
         });
 
         it('Should return 308160 minutes between 01/06/2014 and 01/01/2015 excluding last day', function () {
-            var firstDate = new Date(2014, 5, 1);
-            var secondDate = new Date(2015, 0, 1);
+            var firstDate = "01/06/2014";
+            var secondDate = "01/01/2015";
             Shado.Date.Compare(firstDate, secondDate);
             var minutes = Shado.Date.Minutes(false);
 
@@ -525,8 +525,8 @@
         });
 
         it('Should return 309560 minutes between 01/06/2014 and 01/01/2015 including last day', function () {
-            var firstDate = new Date(2014, 5, 1);
-            var secondDate = new Date(2015, 0, 1);
+            var firstDate = "01/06/2014";
+            var secondDate = "01/01/2015";
             Shado.Date.Compare(firstDate, secondDate);
             var minutes = Shado.Date.Minutes(true);
 
@@ -534,8 +534,8 @@
         });
 
         it('Should return 23300640 minutes with dates between 01/01/1970 and 21/04/2014 including last day', function () {
-            var firstDate = new Date(1970, 0, 1);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "01/01/1970";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var minutes = Shado.Date.Minutes(true);
 
@@ -543,8 +543,8 @@
         });
 
         it('Should return 23299200 minutes with dates between 01/01/1970 and 21/04/2014 excluding last day', function () {
-            var firstDate = new Date(1970, 0, 1);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "01/01/1970";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var minutes = Shado.Date.Minutes(false);
 
@@ -552,8 +552,8 @@
         });
 
         it('Should return 7522560 minutes with dates between 01/01/2000 and 21/04/2014 including last day', function () {
-            var firstDate = new Date(2000, 0, 1);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "01/01/2000";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var minutes = Shado.Date.Minutes(true);
 
@@ -561,8 +561,8 @@
         });
 
         it('Should return 7521120 minutes with dates between 01/01/2000 and 21/04/2014 excluding last day', function () {
-            var firstDate = new Date(2000, 0, 1);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "01/01/2000";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var minutes = Shado.Date.Minutes(false);
 
@@ -572,8 +572,8 @@
 
     describe('Calculation difference in seconds with two dates', function () {
         it('Should return 451526400 seconds with dates between 01/01/2000 and 22/04/2014 including last day', function () {
-            var firstDate = new Date(2000, 0, 1);
-            var secondDate = new Date(2014, 3, 22);
+            var firstDate = "01/01/2000";
+            var secondDate = "22/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var seconds = Shado.Date.Seconds(true);
 
@@ -581,8 +581,8 @@
         });
 
         it('Should return 451440000 seconds with dates between 01/01/2000 and 22/04/2014 excluding last day', function () {
-            var firstDate = new Date(2000, 0, 1);
-            var secondDate = new Date(2014, 3, 22);
+            var firstDate = "01/01/2000";
+            var secondDate = "22/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var seconds = Shado.Date.Seconds(false);
 
@@ -590,8 +590,8 @@
         });
 
         it('Should return 1398211200 seconds with dates between 01/01/1970 and 22/04/2014 including last day', function () {
-            var firstDate = new Date(1970, 0, 1);
-            var secondDate = new Date(2014, 3, 22);
+            var firstDate = "01/01/1970";
+            var secondDate = "22/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var seconds = Shado.Date.Seconds(true);
 
@@ -599,8 +599,8 @@
         });
 
         it('Should return 1398124800 seconds with dates between 01/01/1970 and 22/04/2014 excluding last day', function () {
-            var firstDate = new Date(1970, 0, 1);
-            var secondDate = new Date(2014, 3, 22);
+            var firstDate = "01/01/1970";
+            var secondDate = "22/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var seconds = Shado.Date.Seconds(false);
 
@@ -608,8 +608,8 @@
         });
 
         it('Should return 691200 seconds with dates between 14/04/2014 and 21/04/2014 including last day', function () {
-            var firstDate = new Date(2014, 3, 14);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "14/04/2014";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var seconds = Shado.Date.Seconds(true);
 
@@ -617,8 +617,8 @@
         });
 
         it('Should return 604800 seconds with dates between 14/04/2014 and 21/04/2014 excluding last day', function () {
-            var firstDate = new Date(2014, 3, 14);
-            var secondDate = new Date(2014, 3, 21);
+            var firstDate = "14/04/2014";
+            var secondDate = "21/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var seconds = Shado.Date.Seconds(false);
 
@@ -626,8 +626,8 @@
         });
 
         it('Should return 3607632000 seconds with dates between 01/01/1900 and 27/04/2014 including last day', function () {
-            var firstDate = new Date(1900, 0, 1);
-            var secondDate = new Date(2014, 3, 27);
+            var firstDate = "01/01/1900";
+            var secondDate = "27/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var seconds = Shado.Date.Seconds(true);
 
@@ -635,8 +635,8 @@
         });
 
         it('Should return 3607545600 seconds with dates between 01/01/1900 and 27/04/2014 excluding last day', function () {
-            var firstDate = new Date(1900, 0, 1);
-            var secondDate = new Date(2014, 3, 27);
+            var firstDate = "01/01/1900";
+            var secondDate = "27/04/2014";
             Shado.Date.Compare(firstDate, secondDate);
             var seconds = Shado.Date.Seconds(false);
 
@@ -644,32 +644,34 @@
         });
     });
 
-    describe('Invalid Leap Year', function() {
+    describe('Invalid Leap Year', function () {
         it('Should increment end date to 01/03/2015 if end date is 29/02/2015 - invalid leap year', function () {
-            var firstDate = new Date(2014, 5, 27);
-            var secondDate = new Date(2015, 1, 29);
+            var firstDate = "27/06/2014";
+            var secondDate = "29/02/2015";
             Shado.Date.Compare(firstDate, secondDate);
+            var days = Shado.Date.Days(false);
 
-            expect(secondDate).toEqual(new Date(2015, 2, 1));
+            expect(days).toBe(247);
         });
-        
-        it('Should increment start date to 01/03/2014 if start date is 29/02/2014 - invalid leap year', function () {
-            var firstDate = new Date(2014, 1, 29);
-            var secondDate = new Date(2014, 2, 1);
-            Shado.Date.Compare(firstDate, secondDate);
 
-            expect(firstDate).toEqual(new Date(2014, 2, 1));
+        it('Should increment start date to 01/03/2014 if start date is 29/02/2014 - invalid leap year', function () {
+            var firstDate = "29/02/2014";
+            var secondDate = "01/03/2014";
+            Shado.Date.Compare(firstDate, secondDate);
+            var days = Shado.Date.Days(false);
+
+            expect(days).toBe(0);
         });
     });
 
     describe('Invalid Parameters', function () {
-        it('Should raise exception if both parameters is not of type Date', function () {
+        it('Should raise exception if either parameter is not of type String', function () {
             var firstDate = new Object();
             var secondDate = new Object();
 
             expect(function () {
                 Shado.Date.Compare(firstDate, secondDate);
-            }).toThrow(new Error('Parameters passed in are not Date objects'));
+            }).toThrow(new Error('Parameters are not of type string'));
         });
 
         it('Should raise exception if one parameter is not of type Date', function () {
@@ -678,7 +680,7 @@
 
             expect(function () {
                 Shado.Date.Compare(firstDate, secondDate);
-            }).toThrow(new Error('Parameters passed in are not Date objects'));
+            }).toThrow(new Error('Parameters are not of type string'));
         });
 
         it('Should raise exception if both parameters is null', function () {
@@ -687,16 +689,16 @@
 
             expect(function () {
                 Shado.Date.Compare(firstDate, secondDate);
-            }).toThrow(new Error('Parameters passed in are not Date objects'));
+            }).toThrow(new Error('Parameters are not of type string'));
         });
 
-        it('Should raise exception if one parameter is string', function () {
-            var firstDate = "";
-            var secondDate = new Date(2014, 3, 27);
+        it('Should raise exception if one parameter is not string', function () {
+            var firstDate = new Date(2014, 3, 27);
+            var secondDate = "27/04/2014";
 
             expect(function () {
                 Shado.Date.Compare(firstDate, secondDate);
-            }).toThrow(new Error('Parameters passed in are not Date objects'));
+            }).toThrow(new Error('Parameters are not of type string'));
         });
     });
 });
