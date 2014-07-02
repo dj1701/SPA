@@ -39,6 +39,16 @@
 
         expect(result).toBe(6);
     });
+
+    it('Should return the sum of 6 with 1\n2,3 is provided', function() {
+        var numbers = "1\n2,3";
+
+        var instance = singleton.getInstance();
+
+        var result = instance.Add(numbers);
+
+        expect(result).toBe(6);
+    });
 });
 
 describe('Singleton', function () {

@@ -4,7 +4,7 @@
     self.Add = function (numbers) {
         if (numbers == "") return 0;
 
-        var separatedNumbers = numbers.split(',');
+        var separatedNumbers = numbers.replace(/\n|,/g, '');
 
         var sumOfAllNumbers = 0;
         for (var i = 0; i < separatedNumbers.length; i++) {
