@@ -1,5 +1,4 @@
 ﻿describe('String Calculator', function () {
-    //The method can take 0, 1 or 2 numbers, and will return their sum (for an empty string it will return 0) for example “” or “1” or “1,2”
     it('Should return the sum of 0 if empty string is provided', function () {
         var numbers = "";
 
@@ -23,7 +22,7 @@
     it('Should return the sum of 2 if 0,2 is provided', function () {
         var numbers = "0,2";
 
-            var instance = singleton.getInstance();
+        var instance = singleton.getInstance();
 
         var result = instance.Add(numbers);
 
@@ -48,6 +47,46 @@
         var result = instance.Add(numbers);
 
         expect(result).toBe(6);
+    });
+
+    it('Should return the sum of 11 with 1\n2,3,0\n2,3 is provided', function () {
+        var numbers = "1\n2,3,0\n2,3";
+
+        var instance = singleton.getInstance();
+
+        var result = instance.Add(numbers);
+
+        expect(result).toBe(11);
+    });
+
+    it('Should return the sum of 16 with 1\n2,\n\n3,0\n2,3,5 is provided', function () {
+        var numbers = "1\n2,\n\n3,0\n2,3,5";
+
+        var instance = singleton.getInstance();
+
+        var result = instance.Add(numbers);
+
+        expect(result).toBe(16);
+    });
+
+    it('Should return the sum of 16 with 1\n2,\n,,\n\n3,0\n2,3,5 is provided', function () {
+        var numbers = "1\n2,\n,,\n\n3,0\n2,3,5";
+
+        var instance = singleton.getInstance();
+
+        var result = instance.Add(numbers);
+
+        expect(result).toBe(16);
+    });
+
+    it('Should return the sum of 11 with \n1,,\n\n\n,\n\n3,0\n2,,5 is provided', function () {
+        var numbers = "\n1,,\n\n\n,\n\n3,0\n2,,5";
+
+        var instance = singleton.getInstance();
+
+        var result = instance.Add(numbers);
+
+        expect(result).toBe(11);
     });
 });
 
