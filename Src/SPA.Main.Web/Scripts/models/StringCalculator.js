@@ -2,9 +2,9 @@
     var self = this;
 
     self.Add = function (numbers) {
-        if (numbers == "") return 0;
-
-        var separatedNumbers = numbers.replace(/\n|,/g, '');
+        if (!validPattern(numbers)) return 0;
+        
+        var separatedNumbers = numbers.replace(/\n|,|;/g, '');
 
         var sumOfAllNumbers = 0;
         for (var i = 0; i < separatedNumbers.length; i++) {
@@ -20,6 +20,11 @@
         return sumOfAllNumbers;
     };
 
+    var validPattern = function(param) {
+        var re = /((\d(\\n|,|;){1})+\d)+/g;
+
+        return param.match(re) !== null || param !== "";
+    };
 }
 
 

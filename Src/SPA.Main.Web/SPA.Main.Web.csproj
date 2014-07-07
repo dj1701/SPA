@@ -16,6 +16,10 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -155,8 +159,10 @@
     <Content Include="Scripts\libs\jasmine-1.3.1\jasmine_favicon.png" />
     <Content Include="Scripts\models\DateDiff.js" />
     <Content Include="Scripts\libs\shado.js" />
+    <Content Include="Scripts\models\StringCalculator.js" />
     <Content Include="Scripts\SpecDateComparisonRunner.html" />
     <Content Include="Scripts\specs\DateComparisonSpec.js" />
+    <Content Include="Scripts\specs\StringCalculatorSpec.js" />
     <Content Include="Scripts\todo.js" />
     <Content Include="Scripts\libs\angular.min.js" />
     <Content Include="Scripts\libs\jquery-2.0.2-vsdoc.js" />
