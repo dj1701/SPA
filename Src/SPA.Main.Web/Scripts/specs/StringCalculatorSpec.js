@@ -39,7 +39,7 @@
         expect(result).toBe(6);
     });
 
-    it('Should return the sum of 6 with "1\n2,3" is provided', function() {
+    it('Should return the sum of 6 with "1\n2,3" is provided', function () {
         var numbers = "1\n2,3";
 
         var instance = singleton.getInstance();
@@ -89,14 +89,24 @@
         expect(result).toBe(11);
     });
 
-    it('Should return the sum of 3 with "//;\n1;2"', function() {
+    it('Should return the sum of 3 with "//;\n1;2"', function () {
         var numbers = "//;\n1;2";
-        
+
         var instance = singleton.getInstance();
 
         var result = instance.Add(numbers);
 
         expect(result).toBe(3);
+    });
+
+    it('Should raise exception with message "negatives not allowed" when negitive number passed in', function () {
+        var numbers = "-1";
+
+        var instance = singleton.getInstance();
+
+        expect(function () {
+            instance.Add(numbers);
+        }).toThrow(new Error("negatives not allowed"));
     });
 });
 

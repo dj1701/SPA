@@ -161,6 +161,7 @@
     <Content Include="Scripts\libs\shado.js" />
     <Content Include="Scripts\models\StringCalculator.js" />
     <Content Include="Scripts\SpecDateComparisonRunner.html" />
+    <Content Include="Scripts\SpecStringCalculatorRunner.html" />
     <Content Include="Scripts\specs\DateComparisonSpec.js" />
     <Content Include="Scripts\specs\StringCalculatorSpec.js" />
     <Content Include="Scripts\todo.js" />

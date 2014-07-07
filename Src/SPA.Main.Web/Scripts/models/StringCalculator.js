@@ -2,8 +2,10 @@
     var self = this;
 
     self.Add = function (numbers) {
+        if ((numbers | 0) < 0) throw new Error("negatives not allowed");
+
         if (!validPattern(numbers)) return 0;
-        
+
         var separatedNumbers = numbers.replace(/\n|,|;/g, '');
 
         var sumOfAllNumbers = 0;
@@ -11,11 +13,11 @@
             sumOfAllNumbers += separatedNumbers[i] | 0;
         }
 
-//        var sumOfAllNumbers = separatedNumbers.map(function (ele) {
-//            return /^\d+$/.test(ele) ? parseInt(ele) : 0;
-//        }).reduce(function (previous, current) {
-//            return previous + current;
-//        });
+        //        var sumOfAllNumbers = separatedNumbers.map(function (ele) {
+        //            return /^\d+$/.test(ele) ? parseInt(ele) : 0;
+        //        }).reduce(function (previous, current) {
+        //            return previous + current;
+        //        });
 
         return sumOfAllNumbers;
     };
