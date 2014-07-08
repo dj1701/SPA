@@ -108,6 +108,46 @@
             instance.Add(numbers);
         }).toThrow(new Error("negatives not allowed"));
     });
+
+    it('Should ignore 1001 in the range provided', function() {
+        var numbers = "//;\n2,1001";
+
+        var instance = singleton.getInstance();
+
+        var result = instance.Add(numbers);
+
+        expect(result).toBe(2);
+    });
+    
+    it('Should ignore 1000 in the range provided', function () {
+        var numbers = "//;\n2,1000;3";
+
+        var instance = singleton.getInstance();
+
+        var result = instance.Add(numbers);
+
+        expect(result).toBe(5);
+    });
+    
+    it('Should not ignore 999 in the range provided', function () {
+        var numbers = "//;\n2,999;3";
+
+        var instance = singleton.getInstance();
+
+        var result = instance.Add(numbers);
+
+        expect(result).toBe(1004);
+    });
+    
+    it('Should not ignore 99 in the range provided', function () {
+        var numbers = "//;\n2,99;3";
+
+        var instance = singleton.getInstance();
+
+        var result = instance.Add(numbers);
+
+        expect(result).toBe(104);
+    });
 });
 
 describe('Singleton', function () {
