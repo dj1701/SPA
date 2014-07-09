@@ -148,6 +148,16 @@
 
         expect(result).toBe(104);
     });
+    
+    it('Should ignore 9999 and 1000 in the range provided', function () {
+        var numbers = "//;\n2,99;9999;3,1000";
+
+        var instance = singleton.getInstance();
+
+        var result = instance.Add(numbers);
+
+        expect(result).toBe(104);
+    });
 });
 
 describe('Singleton', function () {
