@@ -5,7 +5,7 @@
             return new Date( dateString[3], dateString[2]-1, dateString[1] );
         },
 
-        Compare: function (firstDate, secondDate) {
+        SetValues: function (firstDate, secondDate) {
             var self = this;
 
             if (Object.prototype.toString.call(firstDate) !== "[object String]" || Object.prototype.toString.call(secondDate) !== "[object String]") {
@@ -21,31 +21,37 @@
             };
         },
 
-        Years: function () {
+        CompareYears: function () {
             var difference = this.getDifference();
             return Math.floor((difference / this.oneDay) % 1.5 == 1 ? (difference / this.oneDay) / 365.24 : (difference / this.oneDay) / 365);
         },
-        Months: function () {
+        
+        CompareMonths: function () {
             var difference = this.getDifference();
             return Math.floor(((difference / this.oneDay) / 365 * 12) % 1 == 0 ? ((difference / this.oneDay) / 365 * 12) : ((difference / this.oneDay) / 365.24 * 12));
         },
-        Weeks: function () {
+        
+        CompareWeeks: function () {
             var difference = this.getDifference();
             return Math.round(difference / this.oneDay) / 7 | 0;
         },
-        Days: function (includeLastDay) {
+        
+        CompareDays: function (includeLastDay) {
             var difference = this.getDifference();
             return Math.round(difference / this.oneDay) + (includeLastDay ? 1 : 0);
         },
-        Hours: function (includeLastDay) {
+        
+        CompareHours: function (includeLastDay) {
             var difference = this.getDifference();
             return (Math.floor(difference / this.oneDay) * 24) + (includeLastDay ? 24 : 0);
         },
-        Minutes: function (includeLastDay) {
+        
+        CompareMinutes: function (includeLastDay) {
             var difference = this.getDifference();
             return (Math.floor(difference / this.oneDay) * 24 + (includeLastDay ? 24 : 0)) * 60;
         },
-        Seconds: function (includeLastDay) {
+        
+        CompareSeconds: function (includeLastDay) {
             var difference = this.getDifference();
             return (Math.round(difference / this.oneDay) + (includeLastDay ? 1 : 0)) * 86400;
         }

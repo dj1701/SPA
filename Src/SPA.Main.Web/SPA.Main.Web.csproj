@@ -163,9 +163,9 @@
     <Content Include="Scripts\libs\shado.js" />
     <Content Include="Scripts\models\ChessPiece.js" />
     <Content Include="Scripts\models\StringCalculator.js" />
-    <Content Include="Scripts\SpecDateComparisonRunner.html" />
+    <Content Include="Scripts\SpecShadoRunner.html" />
     <Content Include="Scripts\SpecStringCalculatorRunner.html" />
-    <Content Include="Scripts\specs\DateComparisonSpec.js" />
+    <Content Include="Scripts\specs\ShadoSpec.js" />
     <Content Include="Scripts\specs\MovingTheKnightSpec.js" />
     <Content Include="Scripts\specs\StringCalculatorSpec.js" />
     <Content Include="Scripts\todo.js" />
