@@ -4,7 +4,7 @@
 
         var instance = singleton.getInstance();
 
-        var result = instance.Add(numbers);
+        var result = instance.add(numbers);
 
         expect(result).toBe(0);
     });
@@ -14,7 +14,7 @@
 
         var instance = singleton.getInstance();
 
-        var result = instance.Add(numbers);
+        var result = instance.add(numbers);
 
         expect(result).toBe(1);
     });
@@ -24,7 +24,7 @@
 
         var instance = singleton.getInstance();
 
-        var result = instance.Add(numbers);
+        var result = instance.add(numbers);
 
         expect(result).toBe(2);
     });
@@ -34,7 +34,7 @@
 
         var instance = singleton.getInstance();
 
-        var result = instance.Add(numbers);
+        var result = instance.add(numbers);
 
         expect(result).toBe(6);
     });
@@ -44,7 +44,7 @@
 
         var instance = singleton.getInstance();
 
-        var result = instance.Add(numbers);
+        var result = instance.add(numbers);
 
         expect(result).toBe(6);
     });
@@ -54,7 +54,7 @@
 
         var instance = singleton.getInstance();
 
-        var result = instance.Add(numbers);
+        var result = instance.add(numbers);
 
         expect(result).toBe(11);
     });
@@ -64,7 +64,7 @@
 
         var instance = singleton.getInstance();
 
-        var result = instance.Add(numbers);
+        var result = instance.add(numbers);
 
         expect(result).toBe(16);
     });
@@ -74,7 +74,7 @@
 
         var instance = singleton.getInstance();
 
-        var result = instance.Add(numbers);
+        var result = instance.add(numbers);
 
         expect(result).toBe(16);
     });
@@ -84,7 +84,7 @@
 
         var instance = singleton.getInstance();
 
-        var result = instance.Add(numbers);
+        var result = instance.add(numbers);
 
         expect(result).toBe(11);
     });
@@ -94,7 +94,7 @@
 
         var instance = singleton.getInstance();
 
-        var result = instance.Add(numbers);
+        var result = instance.add(numbers);
 
         expect(result).toBe(3);
     });
@@ -105,7 +105,7 @@
         var instance = singleton.getInstance();
 
         expect(function () {
-            instance.Add(numbers);
+            instance.add(numbers);
         }).toThrow(new Error("negatives not allowed"));
     });
 
@@ -114,7 +114,7 @@
 
         var instance = singleton.getInstance();
 
-        var result = instance.Add(numbers);
+        var result = instance.add(numbers);
 
         expect(result).toBe(2);
     });
@@ -124,7 +124,7 @@
 
         var instance = singleton.getInstance();
 
-        var result = instance.Add(numbers);
+        var result = instance.add(numbers);
 
         expect(result).toBe(5);
     });
@@ -134,7 +134,7 @@
 
         var instance = singleton.getInstance();
 
-        var result = instance.Add(numbers);
+        var result = instance.add(numbers);
 
         expect(result).toBe(1004);
     });
@@ -144,7 +144,7 @@
 
         var instance = singleton.getInstance();
 
-        var result = instance.Add(numbers);
+        var result = instance.add(numbers);
 
         expect(result).toBe(104);
     });
@@ -154,7 +154,7 @@
 
         var instance = singleton.getInstance();
 
-        var result = instance.Add(numbers);
+        var result = instance.add(numbers);
 
         expect(result).toBe(104);
     });
