@@ -1077,12 +1077,29 @@
             expect(result).toEqual(expectedDate);
         });
 
+        it('Should return new data object for given US date of "07/19/2014"', function () {
+            var date = "07/19/2014";
+            var expectedDate = new Date(2014, 6, 19);
+
+            var result = shado.date.createDate(date, true);
+            expect(result).toEqual(expectedDate);
+        });
+
         it('Should return new data object for current date', function () {
             var today = new Date();
             var date = "".concat(today.getDate(), '/', ("0" + (today.getMonth() + 1)).slice(-2), '/', today.getFullYear());
             var expectedDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
             var result = shado.date.createDate(date);
+            expect(result).toEqual(expectedDate);
+        });
+
+        it('Should return new data object for current date in US date format', function () {
+            var today = new Date();
+            var date = "".concat(("0" + (today.getMonth() + 1)).slice(-2), '/', today.getDate(), '/', today.getFullYear());
+            var expectedDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+            var result = shado.date.createDate(date, true);
             expect(result).toEqual(expectedDate);
         });
     });
