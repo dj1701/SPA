@@ -163,8 +163,8 @@
     <Content Include="Scripts\libs\shado.js" />
     <Content Include="Scripts\models\ChessPiece.js" />
     <Content Include="Scripts\models\StringCalculator.js" />
-    <Content Include="Scripts\SpecShadoRunner.html" />
-    <Content Include="Scripts\SpecStringCalculatorRunner.html" />
+    <Content Include="Scripts\specrunners\SpecShadoRunner.html" />
+    <Content Include="Scripts\specrunners\SpecStringCalculatorRunner.html" />
     <Content Include="Scripts\specs\ShadoSpec.js" />
     <Content Include="Scripts\specs\MovingTheKnightSpec.js" />
     <Content Include="Scripts\specs\StringCalculatorSpec.js" />
@@ -175,7 +175,7 @@
     <Content Include="Scripts\libs\jquery-2.0.2.min.js" />
     <Content Include="Scripts\libs\modernizr.js" />
     <Content Include="Scripts\models\myNameSpace.js" />
-    <Content Include="Scripts\SpecRunner.html" />
+    <Content Include="Scripts\specrunners\SpecRunner.html" />
     <Content Include="Scripts\specs\ClockRefresherFakeCallBackSpec.js" />
     <Content Include="Scripts\specs\ClockRefresherSpec.js" />
     <Content Include="Web.config" />
