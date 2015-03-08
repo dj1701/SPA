@@ -5,10 +5,11 @@ using SPA.Main.MongoDb;
 
 namespace SPA.Main.MongoDbTests
 {
+    [TestFixture]
     public class MongoTests
     {
         private MongoDbAccess _componentUnderTest;
-        
+
         [SetUp]
         public void SetUpForEachTest()
         {
@@ -46,7 +47,7 @@ namespace SPA.Main.MongoDbTests
             }
 
             [Test]
-            public void Should_remove_collection_after_save()
+            public void Should_find_record_by_Id()
             {
                 const string expectedResult = "DJ";
 
@@ -62,9 +63,6 @@ namespace SPA.Main.MongoDbTests
 
                 var bsonDocument = _componentUnderTest.Read(2);
                 Assert.That(bsonDocument["Name"].AsString, Is.EqualTo(expectedResult));
-
-                _componentUnderTest.DeleteAll();
-                Assert.Throws<MongoDbAccessException>(() => _componentUnderTest.Read(2));
             }
 
             [Test]
@@ -100,7 +98,7 @@ namespace SPA.Main.MongoDbTests
             [Test]
             public void Should_save_BSonDocument_nested_record()
             {
-                var foo = new Foo {Properties = _nested};
+                var foo = new Foo { Properties = _nested };
 
                 _componentUnderTest.Add(foo);
 
@@ -113,9 +111,9 @@ namespace SPA.Main.MongoDbTests
             [TestCase("street", "123 Main St.")]
             [TestCase("County", "Cambridgeshire")]
             [TestCase("Post Code", "PE1 3DS")]
-            public void Should_retrieve_address_by_field_name(string fieldName, string expectedValue)
+            public void Should_retrieve_address_value_by_field_name(string fieldName, string expectedValue)
             {
-                _componentUnderTest.Add(new Foo {Properties = _nested});
+                _componentUnderTest.Add(new Foo { Properties = _nested });
 
                 var actualResult = _componentUnderTest.ReadByFieldName(fieldName);
 
@@ -132,6 +130,33 @@ namespace SPA.Main.MongoDbTests
 
                 var ex = Assert.Throws<MongoDbAccessException>(() => _componentUnderTest.ReadByFieldName(incorrectFieldName));
                 Assert.That(ex.Message, Is.EqualTo(expectedExpectionMessage));
+            }
+
+            [Test]
+            public void Should_return_a_count_of_two_records()
+            {
+                _componentUnderTest.Add(new Foo { Properties = _nested });
+                _componentUnderTest.Add(new Foo { Properties = _nested });
+
+                var result = _componentUnderTest.Count();
+
+                const int expectedCount = 2;
+                Assert.That(result, Is.EqualTo(expectedCount));
+            }
+
+            [Test]
+            public void Should_remove_all_records_by_calling_DeleteAll()
+            {
+                _componentUnderTest.Add(new Foo { Properties = _nested });
+                _componentUnderTest.Add(new Foo { Properties = _nested });
+                _componentUnderTest.Add(new Foo { Properties = _nested });
+
+                _componentUnderTest.DeleteAll();
+
+                var result = _componentUnderTest.Count();
+
+                const int expectedCount = 0;
+                Assert.That(result, Is.EqualTo(expectedCount));
             }
         }
     }

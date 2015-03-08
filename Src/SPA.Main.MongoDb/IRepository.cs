@@ -1,8 +1,9 @@
-﻿using MongoDB.Bson;
+﻿using System;
+using MongoDB.Bson;
 
 namespace SPA.Main.MongoDb
 {
-    public interface INoSqlAccess
+    public interface IRepository : IDisposable
     {
         void Open();
         void Close();

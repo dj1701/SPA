@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -6,12 +7,11 @@ using MongoDB.Driver.Linq;
 
 namespace SPA.Main.MongoDb
 {
-    public class MongoDbAccess : INoSqlAccess
+    public class MongoDbAccess : IRepository
     {
         private readonly string _dbName;
         private MongoCollection<BsonDocument> _books;
         private MongoServer _server;
-        private readonly BsonDocument _entity = new BsonDocument();
         private MongoDatabase _db;
 
         public MongoDbAccess(string dbName)
@@ -24,7 +24,7 @@ namespace SPA.Main.MongoDb
             const string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             _server = client.GetServer();
-          
+
             _db = _server.GetDatabase(_dbName);
             _books = _db.GetCollection<BsonDocument>(_dbName);
         }
@@ -32,6 +32,7 @@ namespace SPA.Main.MongoDb
         public void Close()
         {
             _server.Disconnect();
+            Dispose();
         }
 
         public void Add(Foo entity)
@@ -71,6 +72,38 @@ namespace SPA.Main.MongoDb
         public void DeleteAll()
         {
             _books.Drop();
+        }
+
+        public long Count()
+        {
+            return _books.Count();
+        }
+
+        bool _disposed = false;
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        // Protected implementation of Dispose pattern. 
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed)
+                return;
+
+            if (disposing)
+            {
+                // Free any other managed objects here. 
+                //
+            }
+
+            // Free any unmanaged objects here. 
+            //
+            DeleteAll();
+            _disposed = true;
         }
     }
 }

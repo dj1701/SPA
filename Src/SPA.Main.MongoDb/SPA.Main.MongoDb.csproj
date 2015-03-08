@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Foo.cs" />
-    <Compile Include="INoSqlAccess.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="MongoDbAccess.cs" />
     <Compile Include="MongoDbAccessException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
