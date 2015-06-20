@@ -1,16 +1,23 @@
-﻿var shado = {
+﻿var validateParamatersForSupportedTypes = function (firstDate, secondDate) {
+    var isInvalidFirstDateParams = (Object.prototype.toString.call(firstDate) !== "[object String]" && Object.prototype.toString.call(firstDate) !== "[object Date]")
+    var isInvalidSecondDateParams = (Object.prototype.toString.call(secondDate) !== "[object String]" && Object.prototype.toString.call(secondDate) !== "[object Date]")
+    if (isInvalidFirstDateParams || isInvalidSecondDateParams) throw new Error('Parameters are not of expected type string or date');
+};
+
+var shado = {
     date: {
-        createDate: function (str, useUsDateFormat) {
-            var dateString = str.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-            return useUsDateFormat ? new Date(dateString[3], dateString[1] - 1, dateString[2]) : new Date(dateString[3], dateString[2] - 1, dateString[1]);
+        createDate: function (date, useUsDateFormat) {
+            if (Object.prototype.toString.call(date) === "[object String]") {
+                var dateString = date.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+                return useUsDateFormat ? new Date(dateString[3], dateString[1] - 1, dateString[2]) : new Date(dateString[3], dateString[2] - 1, dateString[1]);
+            }
+            return date;
         },
 
         setValues: function (firstDate, secondDate, useUsDateFormat) {
             var self = this;
 
-            if (Object.prototype.toString.call(firstDate) !== "[object String]" || Object.prototype.toString.call(secondDate) !== "[object String]") {
-                throw new Error('Parameters are not of type string');
-            }
+            validateParamatersForSupportedTypes(firstDate, secondDate);
 
             self.firstDate = self.createDate(firstDate, useUsDateFormat);
             self.secondDate = self.createDate(secondDate, useUsDateFormat);
