@@ -1116,7 +1116,7 @@
 
         it('Should return new data object for current date', function () {
             var today = new Date();
-            var date = "".concat(today.getDate(), '/', ("0" + (today.getMonth() + 1)).slice(-2), '/', today.getFullYear());
+            var date = "".concat(("0" + today.getDate()), '/', ("0" + (today.getMonth() + 1)).slice(-2), '/', today.getFullYear());
             var expectedDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
             var result = shado.date.createDate(date);
@@ -1125,7 +1125,7 @@
 
         it('Should return new data object for current date in US date format', function () {
             var today = new Date();
-            var date = "".concat(("0" + (today.getMonth() + 1)).slice(-2), '/', today.getDate(), '/', today.getFullYear());
+            var date = "".concat(("0" + (today.getMonth() + 1)).slice(-2), '/', ("0" + today.getDate()), '/', today.getFullYear());
             var expectedDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
             var result = shado.date.createDate(date, true);
