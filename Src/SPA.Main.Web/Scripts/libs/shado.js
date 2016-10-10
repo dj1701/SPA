@@ -38,8 +38,9 @@
     };
 
     ns.date.compareMonths = function () {
-        var difference = this.getDifference();
-        return Math.floor(((difference / this.oneDay) / 365 * 12) % 1 === 0 ? ((difference / this.oneDay) / 365 * 12) : ((difference / this.oneDay) / 365.24 * 12));
+        var months = (this.secondDate.getFullYear() - this.firstDate.getFullYear()) * 12;
+        months += this.secondDate.getMonth() - this.firstDate.getMonth();
+        return this.secondDate.getDate() < this.firstDate.getDate() ? months -= 1 : months;
     };
 
     ns.date.compareWeeks = function () {
