@@ -155,6 +155,38 @@
                 expect(years).toBe(25);
             });
         });
+
+        describe('With individual unit parameters for Day, Month and Year as integers', function() {
+            it('Should return 1 year with between 1 1 2016 and 1 1 2017', function() {
+                var firstDay = 1;
+                var firstMonth = 1;
+                var firstYear = 2016;
+
+                var secondDay = 1;
+                var secondMonth = 1;
+                var secondYear = 2017;
+
+                shado.date.setDatesWithUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getYears();
+
+                expect(result).toBe(1);
+            });
+
+            it('Should return 101 years with between 28 4 2016 and 28 4 2117', function () {
+                var firstDay = 28;
+                var firstMonth = 4;
+                var firstYear = 2016;
+
+                var secondDay = 28;
+                var secondMonth = 4;
+                var secondYear = 2117;
+
+                shado.date.setDatesWithUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getYears();
+
+                expect(result).toBe(101);
+            });
+        });
     });
 
     describe('Calculation difference in months with two dates', function () {

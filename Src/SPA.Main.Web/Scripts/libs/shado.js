@@ -2,10 +2,23 @@
 
 (function (ns) {
 
+    var oneDayDuration = 1000 * 60 * 60 * 24;
+    var difference = 0;
+    var startDate = 0;
+    var endDate = 0;
+
     var validateParamatersForSupportedTypes = function (firstDate, secondDate) {
         var isInvalidFirstDateParams = (Object.prototype.toString.call(firstDate) !== "[object String]" && Object.prototype.toString.call(firstDate) !== "[object Date]")
         var isInvalidSecondDateParams = (Object.prototype.toString.call(secondDate) !== "[object String]" && Object.prototype.toString.call(secondDate) !== "[object Date]")
         if (isInvalidFirstDateParams || isInvalidSecondDateParams) throw new Error('Parameters are not of expected type string or date');
+    };
+
+    var createDateFromUnits = function(day, month, year) {
+        return new Date(year, month - 1, day);
+    };
+
+    var getDifference = function(startDate, endDate) {
+        return endDate - startDate;
     };
 
     ns.date = ns.date || {};
@@ -18,54 +31,51 @@
         return date;
     };
 
-    ns.date.setDates = function (firstDate, secondDate, useUsDateFormat) {
+    ns.date.setDates = function (beginDate, finishDate, useUsDateFormat) {
         var self = this;
 
-        validateParamatersForSupportedTypes(firstDate, secondDate);
+        validateParamatersForSupportedTypes(beginDate, finishDate);
 
-        self.firstDate = self.createDate(firstDate, useUsDateFormat);
-        self.secondDate = self.createDate(secondDate, useUsDateFormat);
-        self.oneDay = 1000 * 60 * 60 * 24;
+        startDate = self.createDate(beginDate, useUsDateFormat);
+        endDate = self.createDate(finishDate, useUsDateFormat);
+        difference = getDifference(startDate, endDate);
+    };
 
-        self.getDifference = function () {
-            return self.secondDate - self.firstDate;
-        };
+    ns.date.setDatesWithUnits = function(startDay, startMonth, startYear, endDay, endMonth, endYear) {
+        startDate = createDateFromUnits(startDay, startMonth, startYear);
+        endDate = createDateFromUnits(endDay, endMonth, endYear);
+        difference = getDifference(startDate, endDate);
     };
 
     ns.date.getYears = function () {
-        var difference = this.getDifference();
-        return ((difference / this.oneDay) / 365 % 1 === 0 ? (difference / this.oneDay) / 365 : (difference / this.oneDay) / 365.24) | 0;
+        var result = (endDate.getFullYear() - startDate.getFullYear());
+        return (endDate.getDate() < startDate.getDate()) || (endDate.getMonth() < startDate.getMonth()) ? result -= 1 : result;
     };
 
     ns.date.getMonths = function () {
-        var months = (this.secondDate.getFullYear() - this.firstDate.getFullYear()) * 12;
-        months += this.secondDate.getMonth() - this.firstDate.getMonth();
-        return this.secondDate.getDate() < this.firstDate.getDate() ? months -= 1 : months;
+        var months = (endDate.getFullYear() - startDate.getFullYear()) * 12;
+        months += endDate.getMonth() - startDate.getMonth();
+        return endDate.getDate() < startDate.getDate() ? months -= 1 : months;
     };
 
     ns.date.getWeeks = function () {
-        var difference = this.getDifference();
-        return Math.round(difference / this.oneDay) / 7 | 0;
+        return Math.round(difference / oneDayDuration) / 7 | 0;
     };
 
     ns.date.getDays = function (includeLastDay) {
-        var difference = this.getDifference();
-        return Math.round(difference / this.oneDay) + (includeLastDay ? 1 : 0);
+        return Math.round(difference / oneDayDuration) + (includeLastDay ? 1 : 0);
     };
 
     ns.date.getHours = function (includeLastDay) {
-        var difference = this.getDifference();
-        return (Math.floor(difference / this.oneDay) * 24) + (includeLastDay ? 24 : 0);
+        return (Math.floor(difference / oneDayDuration) * 24) + (includeLastDay ? 24 : 0);
     };
 
     ns.date.getMinutes = function (includeLastDay) {
-        var difference = this.getDifference();
-        return (Math.floor(difference / this.oneDay) * 24 + (includeLastDay ? 24 : 0)) * 60;
+        return (Math.floor(difference / oneDayDuration) * 24 + (includeLastDay ? 24 : 0)) * 60;
     };
 
     ns.date.getSeconds = function (includeLastDay) {
-        var difference = this.getDifference();
-        return (Math.round(difference / this.oneDay) + (includeLastDay ? 1 : 0)) * 86400;
+        return (Math.round(difference / oneDayDuration) + (includeLastDay ? 1 : 0)) * 86400;
     };
 
 })(shado);
