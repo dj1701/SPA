@@ -18,7 +18,7 @@
         return date;
     };
 
-    ns.date.setValues = function (firstDate, secondDate, useUsDateFormat) {
+    ns.date.setDates = function (firstDate, secondDate, useUsDateFormat) {
         var self = this;
 
         validateParamatersForSupportedTypes(firstDate, secondDate);
@@ -32,38 +32,38 @@
         };
     };
 
-    ns.date.compareYears = function () {
+    ns.date.getYears = function () {
         var difference = this.getDifference();
         return ((difference / this.oneDay) / 365 % 1 === 0 ? (difference / this.oneDay) / 365 : (difference / this.oneDay) / 365.24) | 0;
     };
 
-    ns.date.compareMonths = function () {
+    ns.date.getMonths = function () {
         var months = (this.secondDate.getFullYear() - this.firstDate.getFullYear()) * 12;
         months += this.secondDate.getMonth() - this.firstDate.getMonth();
         return this.secondDate.getDate() < this.firstDate.getDate() ? months -= 1 : months;
     };
 
-    ns.date.compareWeeks = function () {
+    ns.date.getWeeks = function () {
         var difference = this.getDifference();
         return Math.round(difference / this.oneDay) / 7 | 0;
     };
 
-    ns.date.compareDays = function (includeLastDay) {
+    ns.date.getDays = function (includeLastDay) {
         var difference = this.getDifference();
         return Math.round(difference / this.oneDay) + (includeLastDay ? 1 : 0);
     };
 
-    ns.date.compareHours = function (includeLastDay) {
+    ns.date.getHours = function (includeLastDay) {
         var difference = this.getDifference();
         return (Math.floor(difference / this.oneDay) * 24) + (includeLastDay ? 24 : 0);
     };
 
-    ns.date.compareMinutes = function (includeLastDay) {
+    ns.date.getMinutes = function (includeLastDay) {
         var difference = this.getDifference();
         return (Math.floor(difference / this.oneDay) * 24 + (includeLastDay ? 24 : 0)) * 60;
     };
 
-    ns.date.compareSeconds = function (includeLastDay) {
+    ns.date.getSeconds = function (includeLastDay) {
         var difference = this.getDifference();
         return (Math.round(difference / this.oneDay) + (includeLastDay ? 1 : 0)) * 86400;
     };
