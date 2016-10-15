@@ -7,13 +7,13 @@
     var startDate = 0;
     var endDate = 0;
 
-    var validateParamatersForSupportedTypes = function (firstDate, secondDate) {
-        var isInvalidFirstDateParams = (Object.prototype.toString.call(firstDate) !== "[object String]" && Object.prototype.toString.call(firstDate) !== "[object Date]");
-        var isInvalidSecondDateParams = (Object.prototype.toString.call(secondDate) !== "[object String]" && Object.prototype.toString.call(secondDate) !== "[object Date]");
+    var validateParamatersByBothStartAndEndDate = function (beginDate, endDate) {
+        var isInvalidFirstDateParams = (Object.prototype.toString.call(beginDate) !== "[object String]" && Object.prototype.toString.call(beginDate) !== "[object Date]");
+        var isInvalidSecondDateParams = (Object.prototype.toString.call(endDate) !== "[object String]" && Object.prototype.toString.call(endDate) !== "[object Date]");
         if (isInvalidFirstDateParams || isInvalidSecondDateParams) throw new Error('Parameters are expecting type string or date');
     };
 
-    var validateParamatersForUnits = function(day, month, year) {
+    var validateParamatersByUnit = function(day, month, year) {
         var isInvalid = (Object.prototype.toString.call(day) !== "[object Number]" && Object.prototype.toString.call(day) !== "[object String]") ||
                         (Object.prototype.toString.call(month) !== "[object Number]" && Object.prototype.toString.call(month) !== "[object String]") || 
                         (Object.prototype.toString.call(year) !== "[object Number]" && Object.prototype.toString.call(year) !== "[object String]");
@@ -41,7 +41,7 @@
     ns.date.setDates = function (beginDate, finishDate, useUsDateFormat) {
         var self = this;
 
-        validateParamatersForSupportedTypes(beginDate, finishDate);
+        validateParamatersByBothStartAndEndDate(beginDate, finishDate);
 
         startDate = self.createDate(beginDate, useUsDateFormat);
         endDate = self.createDate(finishDate, useUsDateFormat);
@@ -49,8 +49,8 @@
     };
 
     ns.date.setDatesByUnits = function(startDay, startMonth, startYear, endDay, endMonth, endYear) {
-        validateParamatersForUnits(startDay, startMonth, startYear);
-        validateParamatersForUnits(endDay, endMonth, endYear);
+        validateParamatersByUnit(startDay, startMonth, startYear);
+        validateParamatersByUnit(endDay, endMonth, endYear);
 
         startDate = createDateFromUnits(startDay, startMonth, startYear);
         endDate = createDateFromUnits(endDay, endMonth, endYear);
