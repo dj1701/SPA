@@ -157,7 +157,7 @@
         });
 
         describe('With individual unit parameters for Day, Month and Year as integers', function() {
-            it('Should return 1 year with between 1 1 2016 and 1 1 2017', function() {
+            it('Should return 1 year with dates between 1 1 2016 and 1 1 2017', function() {
                 var firstDay = 1;
                 var firstMonth = 1;
                 var firstYear = 2016;
@@ -166,13 +166,13 @@
                 var secondMonth = 1;
                 var secondYear = 2017;
 
-                shado.date.setDatesWithUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
                 var result = shado.date.getYears();
 
                 expect(result).toBe(1);
             });
 
-            it('Should return 101 years with between 28 4 2016 and 28 4 2117', function () {
+            it('Should return 101 years with dates between 28 4 2016 and 28 4 2117', function () {
                 var firstDay = 28;
                 var firstMonth = 4;
                 var firstYear = 2016;
@@ -181,10 +181,40 @@
                 var secondMonth = 4;
                 var secondYear = 2117;
 
-                shado.date.setDatesWithUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
                 var result = shado.date.getYears();
 
                 expect(result).toBe(101);
+            });
+
+            it('Should return 251 years with dates between 31 12 1899 and 31 12 2150', function() {
+                var firstDay = 31;
+                var firstMonth = 12;
+                var firstYear = 1899;
+
+                var secondDay = 31;
+                var secondMonth = 12;
+                var secondYear = 2150;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getYears();
+
+                expect(result).toBe(251);
+            });
+
+            it('Should return 0 year with dates 2 1 1999 and 1 1 2000', function () {
+                var firstDay = 2;
+                var firstMonth = 1;
+                var firstYear = 1999;
+
+                var secondDay = 1;
+                var secondMonth = 1;
+                var secondYear = 2000;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getYears();
+
+                expect(result).toBe(0);
             });
         });
     });
@@ -335,6 +365,68 @@
                 expect(months).toBe(774);
             });
         });
+
+        describe('With individual unit parameters for Day, Month and Year as integers', function() {
+            it('Should return 774 months with dates between 31 10 1949 and 1 5 2014', function () {
+                var firstDay = 31;
+                var firstMonth = 10;
+                var firstYear = 1949;
+
+                var secondDay = 1;
+                var secondMonth = 5;
+                var secondYear = 2014;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var months = shado.date.getMonths();
+
+                expect(months).toBe(774);
+            });
+
+            it('Should return 3012 months with dates between 31 12 1899 and 31 12 2150', function () {
+                var firstDay = 31;
+                var firstMonth = 12;
+                var firstYear = 1899;
+
+                var secondDay = 31;
+                var secondMonth = 12;
+                var secondYear = 2150;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getMonths();
+
+                expect(result).toBe(3012);
+            });
+
+            it('Should return 1 month with dates 1 12 1999 and 1 1 2000', function() {
+                var firstDay = 1;
+                var firstMonth = 12;
+                var firstYear = 1999;
+
+                var secondDay = 1;
+                var secondMonth = 1;
+                var secondYear = 2000;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getMonths();
+
+                expect(result).toBe(1);
+            });
+
+            it('Should return 0 month with dates 1 12 1999 and 31 12 1999', function () {
+                var firstDay = 1;
+                var firstMonth = 12;
+                var firstYear = 1999;
+
+                var secondDay = 31;
+                var secondMonth = 12;
+                var secondYear = 1999;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getMonths();
+
+                expect(result).toBe(0);
+            });
+        });
     });
 
     describe('Calculation difference in weeks with two dates', function () {
@@ -472,6 +564,68 @@
                 var weeks = shado.date.getWeeks();
 
                 expect(weeks).toBe(148);
+            });
+        });
+
+        describe('With individual unit parameters for Day, Month and Year as integers', function() {
+            it('Should return 13096 weeks with dates between 31 12 1899 and 31 12 2150', function () {
+                var firstDay = 31;
+                var firstMonth = 12;
+                var firstYear = 1899;
+
+                var secondDay = 31;
+                var secondMonth = 12;
+                var secondYear = 2150;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getWeeks();
+
+                expect(result).toBe(13096);
+            });
+
+            it('Should return 2609 weeks with dates between 30/03/1964 and 06/04/2014', function () {
+                var firstDay = 30;
+                var firstMonth = 3;
+                var firstYear = 1964;
+
+                var secondDay = 6;
+                var secondMonth = 4;
+                var secondYear = 2014;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getWeeks();
+
+                expect(result).toBe(2609);
+            });
+
+            it('Should return 1 week with dates between 10 10 2016 and 17 10 2016', function () {
+                var firstDay = 10;
+                var firstMonth = 10;
+                var firstYear = 2016;
+
+                var secondDay = 17;
+                var secondMonth = 10;
+                var secondYear = 2016;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getWeeks();
+
+                expect(result).toBe(1);
+            });
+
+            it('Should return 0 week with dates between 10 10 2016 and 15 10 2016', function () {
+                var firstDay = 10;
+                var firstMonth = 10;
+                var firstYear = 2016;
+
+                var secondDay = 15;
+                var secondMonth = 10;
+                var secondYear = 2016;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getWeeks();
+
+                expect(result).toBe(0);
             });
         });
     });
@@ -640,6 +794,98 @@
                 expect(days).toBe(100);
             });
         });
+
+        describe('With individual unit parameters for Day, Month and Year as integers', function() {
+            it('Should return 91676 days with dates between 31 12 1899 and 31 12 2150, excluding last day', function () {
+                var firstDay = 31;
+                var firstMonth = 12;
+                var firstYear = 1899;
+
+                var secondDay = 31;
+                var secondMonth = 12;
+                var secondYear = 2150;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getDays();
+
+                expect(result).toBe(91676);
+            });
+
+            it('Should return 91677 days with dates between 31 12 1899 and 31 12 2150, including last day', function () {
+                var firstDay = 31;
+                var firstMonth = 12;
+                var firstYear = 1899;
+
+                var secondDay = 31;
+                var secondMonth = 12;
+                var secondYear = 2150;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getDays(true);
+
+                expect(result).toBe(91677);
+            });
+
+            it('Should return 23474 days with dates between 31 12 1949 and 07 04 2014, including last day', function () {
+                var firstDay = 31;
+                var firstMonth = 12;
+                var firstYear = 1949;
+
+                var secondDay = 7;
+                var secondMonth = 4;
+                var secondYear = 2014;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getDays(true);
+
+                expect(result).toBe(23474);
+            });
+
+            it('Should return 23473 days with dates between 31 12 1949 and 07 04 2014, excluding last day', function () {
+                var firstDay = 31;
+                var firstMonth = 12;
+                var firstYear = 1949;
+
+                var secondDay = 7;
+                var secondMonth = 4;
+                var secondYear = 2014;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getDays(false);
+
+                expect(result).toBe(23473);
+            });
+
+            it('Should return 0 day with dates between 10 10 2016 and 10 10 2016, excluding last day', function () {
+                var firstDay = 10;
+                var firstMonth = 10;
+                var firstYear = 2016;
+
+                var secondDay = 10;
+                var secondMonth = 10;
+                var secondYear = 2016;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getDays(false);
+
+                expect(result).toBe(0);
+            });
+
+            it('Should return 1 day with dates between 10 10 2016 and 10 10 2016, including last day', function () {
+                var firstDay = 10;
+                var firstMonth = 10;
+                var firstYear = 2016;
+
+                var secondDay = 10;
+                var secondMonth = 10;
+                var secondYear = 2016;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getDays(true);
+
+                expect(result).toBe(1);
+            });
+        });
     });
 
     describe('Calculation difference in hours with two dates', function () {
@@ -779,6 +1025,68 @@
                 expect(hours).toBe(563664);
             });
         });
+
+        describe('With individual unit parameters for Day, Month and Year as integers', function() {
+            it('Should return 2200224 hours with dates between 31 12 1899 and 31 12 2150, excluding last day', function () {
+                var firstDay = 31;
+                var firstMonth = 12;
+                var firstYear = 1899;
+
+                var secondDay = 31;
+                var secondMonth = 12;
+                var secondYear = 2150;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getHours(false);
+
+                expect(result).toBe(2200224);
+            });
+
+            it('Should return 2200248 hours with dates between 31 12 1899 and 31 12 2150, including last day', function () {
+                var firstDay = 31;
+                var firstMonth = 12;
+                var firstYear = 1899;
+
+                var secondDay = 31;
+                var secondMonth = 12;
+                var secondYear = 2150;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getHours(true);
+
+                expect(result).toBe(2200248);
+            });
+
+            it('Should return 24 hours with dates between 1 1 2016 and 1 1 2016, including last day', function () {
+                var firstDay = 1;
+                var firstMonth = 1;
+                var firstYear = 2016;
+
+                var secondDay = 1;
+                var secondMonth = 1;
+                var secondYear = 2016;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getHours(true);
+
+                expect(result).toBe(24);
+            });
+
+            it('Should return 0 hours with dates between 1 1 2016 and 1 1 2016, excluding last day', function () {
+                var firstDay = 1;
+                var firstMonth = 1;
+                var firstYear = 2016;
+
+                var secondDay = 1;
+                var secondMonth = 1;
+                var secondYear = 2016;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getHours(false);
+
+                expect(result).toBe(0);
+            });
+        });
     });
 
     describe('Calculation difference in minutes with two dates', function () {
@@ -900,6 +1208,98 @@
                 expect(minutes).toBe(23300640);
             });
         });
+
+        describe('With individual unit parameters for Day, Month and Year as integers', function() {
+            it('Should return 132013440 minutes with dates between 31 12 1899 and 31 12 2150, excluding last day', function () {
+                var firstDay = 31;
+                var firstMonth = 12;
+                var firstYear = 1899;
+
+                var secondDay = 31;
+                var secondMonth = 12;
+                var secondYear = 2150;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getMinutes(false);
+
+                expect(result).toBe(132013440);
+            });
+
+            it('Should return 132014880 minutes with dates between 31 12 1899 and 31 12 2150, including last day', function () {
+                var firstDay = 31;
+                var firstMonth = 12;
+                var firstYear = 1899;
+
+                var secondDay = 31;
+                var secondMonth = 12;
+                var secondYear = 2150;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getMinutes(true);
+
+                expect(result).toBe(132014880);
+            });
+
+            it('Should return 1440 minutes with dates between 1 1 2016 and 2 1 2016, excluding last day', function() {
+                var firstDay = 1;
+                var firstMonth = 1;
+                var firstYear = 2016;
+
+                var secondDay = 2;
+                var secondMonth = 1;
+                var secondYear = 2016;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getMinutes(false);
+
+                expect(result).toBe(1440);
+            });
+
+            it('Should return 2880 minutes with dates between 1 1 2016 and 2 1 2016, including last day', function () {
+                var firstDay = 1;
+                var firstMonth = 1;
+                var firstYear = 2016;
+
+                var secondDay = 2;
+                var secondMonth = 1;
+                var secondYear = 2016;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getMinutes(true);
+
+                expect(result).toBe(2880);
+            });
+
+            it('Should return 1440 minutes with dates between 1 1 2016 and 1 1 2016, including last day', function () {
+                var firstDay = 1;
+                var firstMonth = 1;
+                var firstYear = 2016;
+
+                var secondDay = 1;
+                var secondMonth = 1;
+                var secondYear = 2016;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getMinutes(true);
+
+                expect(result).toBe(1440);
+            });
+
+            it('Should return 0 minutes with dates between 1 1 2016 and 1 1 2016, excluding last day', function () {
+                var firstDay = 1;
+                var firstMonth = 1;
+                var firstYear = 2016;
+
+                var secondDay = 1;
+                var secondMonth = 1;
+                var secondYear = 2016;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getMinutes(false);
+
+                expect(result).toBe(0);
+            });
+        });
     });
 
     describe('Calculation difference in seconds with two dates', function () {
@@ -1019,6 +1419,68 @@
                 var seconds = shado.date.getSeconds(false);
 
                 expect(seconds).toBe(3607545600);
+            });
+        });
+
+        describe('With individual unit parameters for Day, Month and Year as integers', function() {
+            it('Should return 7920806400 seconds with dates between 31 12 1899 and 31 12 2150, excluding last day', function () {
+                var firstDay = 31;
+                var firstMonth = 12;
+                var firstYear = 1899;
+
+                var secondDay = 31;
+                var secondMonth = 12;
+                var secondYear = 2150;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getSeconds(false);
+
+                expect(result).toBe(7920806400);
+            });
+
+            it('Should return 7920892800 minutes with dates between 31 12 1899 and 31 12 2150, including last day', function () {
+                var firstDay = 31;
+                var firstMonth = 12;
+                var firstYear = 1899;
+
+                var secondDay = 31;
+                var secondMonth = 12;
+                var secondYear = 2150;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getSeconds(true);
+
+                expect(result).toBe(7920892800);
+            });
+
+            it('Should return 84600 seconds with dates between 1 1 2016 and 1 1 2016, including last day', function () {
+                var firstDay = 1;
+                var firstMonth = 1;
+                var firstYear = 2016;
+
+                var secondDay = 1;
+                var secondMonth = 1;
+                var secondYear = 2016;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getSeconds(true);
+
+                expect(result).toBe(86400);
+            });
+
+            it('Should return 0 seconds with dates between 1 1 2016 and 1 1 2016, excluding last day', function () {
+                var firstDay = 1;
+                var firstMonth = 1;
+                var firstYear = 2016;
+
+                var secondDay = 1;
+                var secondMonth = 1;
+                var secondYear = 2016;
+
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+                var result = shado.date.getMinutes(false);
+
+                expect(result).toBe(0);
             });
         });
     });

@@ -8,8 +8,8 @@
     var endDate = 0;
 
     var validateParamatersForSupportedTypes = function (firstDate, secondDate) {
-        var isInvalidFirstDateParams = (Object.prototype.toString.call(firstDate) !== "[object String]" && Object.prototype.toString.call(firstDate) !== "[object Date]")
-        var isInvalidSecondDateParams = (Object.prototype.toString.call(secondDate) !== "[object String]" && Object.prototype.toString.call(secondDate) !== "[object Date]")
+        var isInvalidFirstDateParams = (Object.prototype.toString.call(firstDate) !== "[object String]" && Object.prototype.toString.call(firstDate) !== "[object Date]");
+        var isInvalidSecondDateParams = (Object.prototype.toString.call(secondDate) !== "[object String]" && Object.prototype.toString.call(secondDate) !== "[object Date]");
         if (isInvalidFirstDateParams || isInvalidSecondDateParams) throw new Error('Parameters are not of expected type string or date');
     };
 
@@ -41,7 +41,7 @@
         difference = getDifference(startDate, endDate);
     };
 
-    ns.date.setDatesWithUnits = function(startDay, startMonth, startYear, endDay, endMonth, endYear) {
+    ns.date.setDatesByUnits = function(startDay, startMonth, startYear, endDay, endMonth, endYear) {
         startDate = createDateFromUnits(startDay, startMonth, startYear);
         endDate = createDateFromUnits(endDay, endMonth, endYear);
         difference = getDifference(startDate, endDate);
