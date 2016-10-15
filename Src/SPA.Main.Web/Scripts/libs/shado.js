@@ -14,7 +14,9 @@
     };
 
     var validateParamatersForUnits = function(day, month, year) {
-        var isInvalid = (Object.prototype.toString.call(day) !== "[object Number]" || Object.prototype.toString.call(month) !== "[object Number]" || Object.prototype.toString.call(year) !== "[object Number]");
+        var isInvalid = (Object.prototype.toString.call(day) !== "[object Number]" && Object.prototype.toString.call(day) !== "[object String]") ||
+                        (Object.prototype.toString.call(month) !== "[object Number]" && Object.prototype.toString.call(month) !== "[object String]") || 
+                        (Object.prototype.toString.call(year) !== "[object Number]" && Object.prototype.toString.call(year) !== "[object String]");
         if (isInvalid) throw new Error('Parameters are not of expected type integer or string');
     };
 
