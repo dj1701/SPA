@@ -1525,7 +1525,7 @@
         });
     });
 
-    describe('Invalid Parameters', function () {
+    describe('Invalid Parameters for method setDates', function () {
         it('Should raise exception if either parameter is not of type String', function () {
             var firstDate = new Object();
             var secondDate = new Object();
@@ -1551,6 +1551,50 @@
             expect(function () {
                 shado.date.setDates(firstDate, secondDate);
             }).toThrow(new Error('Parameters are not of expected type string or date'));
+        });
+    });
+
+    describe('Invalid Parameters for method setDatesByUnit', function () {
+        it('Should raise exception if day parameter is not of type Integer', function() {
+            var firstDay = new Object();
+            var firstMonth = 1;
+            var firstYear = 2016;
+
+            var secondDay = 1;
+            var secondMonth = 1;
+            var secondYear = 2016;
+
+            expect(function () {
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+            }).toThrow(new Error('Parameters are not of expected type integer or string'));
+        });
+
+        it('Should raise exception if year parameter is not of type Integer', function () {
+            var firstDay = 1;
+            var firstMonth = 1;
+            var firstYear = 2016;
+
+            var secondDay = 1;
+            var secondMonth = 1;
+            var secondYear = new Date();
+
+            expect(function () {
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+            }).toThrow(new Error('Parameters are not of expected type integer or string'));
+        });
+
+        it('Should raise exception if month parameter is not of type Integer', function () {
+            var firstDay = 1;
+            var firstMonth = null;
+            var firstYear = 2016;
+
+            var secondDay = 1;
+            var secondMonth = 1;
+            var secondYear = 2016;
+
+            expect(function () {
+                shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
+            }).toThrow(new Error('Parameters are not of expected type integer or string'));
         });
     });
 

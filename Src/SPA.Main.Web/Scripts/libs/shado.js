@@ -13,6 +13,11 @@
         if (isInvalidFirstDateParams || isInvalidSecondDateParams) throw new Error('Parameters are not of expected type string or date');
     };
 
+    var validateParamatersForUnits = function(day, month, year) {
+        var isInvalid = (Object.prototype.toString.call(day) !== "[object Number]" || Object.prototype.toString.call(month) !== "[object Number]" || Object.prototype.toString.call(year) !== "[object Number]");
+        if (isInvalid) throw new Error('Parameters are not of expected type integer or string');
+    };
+
     var createDateFromUnits = function(day, month, year) {
         return new Date(year, month - 1, day);
     };
@@ -42,6 +47,9 @@
     };
 
     ns.date.setDatesByUnits = function(startDay, startMonth, startYear, endDay, endMonth, endYear) {
+        validateParamatersForUnits(startDay, startMonth, startYear);
+        validateParamatersForUnits(endDay, endMonth, endYear);
+
         startDate = createDateFromUnits(startDay, startMonth, startYear);
         endDate = createDateFromUnits(endDay, endMonth, endYear);
         difference = getDifference(startDate, endDate);
