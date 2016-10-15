@@ -1966,7 +1966,7 @@
 
             expect(function () {
                 shado.date.setDates(firstDate, secondDate);
-            }).toThrow(new Error('Parameters are not of expected type string or date'));
+            }).toThrow(new Error('Parameters are expecting type string or date'));
         });
 
         it('Should raise exception if one parameter is not of type Date or String', function () {
@@ -1975,7 +1975,7 @@
 
             expect(function () {
                 shado.date.setDates(firstDate, secondDate);
-            }).toThrow(new Error('Parameters are not of expected type string or date'));
+            }).toThrow(new Error('Parameters are expecting type string or date'));
         });
 
         it('Should raise exception if both parameters is null', function () {
@@ -1984,7 +1984,7 @@
 
             expect(function () {
                 shado.date.setDates(firstDate, secondDate);
-            }).toThrow(new Error('Parameters are not of expected type string or date'));
+            }).toThrow(new Error('Parameters are expecting type string or date'));
         });
     });
 
@@ -2000,7 +2000,7 @@
 
             expect(function () {
                 shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
-            }).toThrow(new Error('Parameters are not of expected type integer or string'));
+            }).toThrow(new Error('Parameters are expecting type number or string'));
         });
 
         it('Should raise exception if year parameter is not a number or string', function () {
@@ -2014,10 +2014,10 @@
 
             expect(function () {
                 shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
-            }).toThrow(new Error('Parameters are not of expected type integer or string'));
+            }).toThrow(new Error('Parameters are expecting type number or string'));
         });
 
-        it('Should raise exception if month parameter is not a number of string', function () {
+        it('Should raise exception if month parameter is not a number or string', function () {
             var firstDay = 1;
             var firstMonth = null;
             var firstYear = 2016;
@@ -2028,7 +2028,7 @@
 
             expect(function () {
                 shado.date.setDatesByUnits(firstDay, firstMonth, firstYear, secondDay, secondMonth, secondYear);
-            }).toThrow(new Error('Parameters are not of expected type integer or string'));
+            }).toThrow(new Error('Parameters are expecting type number or string'));
         });
     });
 
