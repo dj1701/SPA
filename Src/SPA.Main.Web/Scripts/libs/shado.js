@@ -69,23 +69,23 @@
     };
 
     ns.date.getWeeks = function () {
-        return Math.round(difference / oneDayDuration) / 7 | 0;
+        return ((((difference / oneDayDuration) + 0.5) << 1 ) >> 1 ) / 7 | 0;
     };
 
     ns.date.getDays = function (includeLastDay) {
-        return Math.round(difference / oneDayDuration) + (includeLastDay ? 1 : 0);
+        return ((((difference / oneDayDuration) + 0.5 ) << 1) >> 1 ) + (includeLastDay ? 1 : 0);
     };
 
     ns.date.getHours = function (includeLastDay) {
-        return (Math.floor(difference / oneDayDuration) * 24) + (includeLastDay ? 24 : 0);
+        return (((difference / oneDayDuration) | 0) * 24) + (includeLastDay ? 24 : 0);
     };
 
     ns.date.getMinutes = function (includeLastDay) {
-        return (Math.floor(difference / oneDayDuration) * 24 + (includeLastDay ? 24 : 0)) * 60;
+        return (((difference / oneDayDuration) | 0) * 24 + (includeLastDay ? 24 : 0)) * 60;
     };
 
     ns.date.getSeconds = function (includeLastDay) {
-        return (Math.round(difference / oneDayDuration) + (includeLastDay ? 1 : 0)) * 86400;
+        return (((((difference / oneDayDuration) + 0.5) << 1) >> 1) + (includeLastDay ? 1 : 0)) * 86400;
     };
 
 })(shado);
