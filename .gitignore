@@ -36,3 +36,4 @@ docs/~*
 src/UpgradeLog.*
 src/_UpgradeReport_Files/
 packages/*
+**/node_modules/*

@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -151,6 +153,13 @@
     <Content Include="Scripts\libs\jasmine-2.0.0\jasmine.css" />
     <Content Include="Scripts\libs\jasmine-2.0.0\jasmine.js" />
     <Content Include="Scripts\libs\jasmine-2.0.0\jasmine_favicon.png" />
+    <Content Include="Scripts\libs\jasmine-2.8.0\boot.js" />
+    <Content Include="Scripts\libs\jasmine-2.8.0\console.js" />
+    <Content Include="Scripts\libs\jasmine-2.8.0\jasmine-html.js" />
+    <Content Include="Scripts\libs\jasmine-2.8.0\jasmine.css" />
+    <Content Include="Scripts\libs\jasmine-2.8.0\jasmine.js" />
+    <Content Include="Scripts\libs\jasmine-2.8.0\jasmine_favicon.png" />
+    <Content Include="Scripts\libs\jasmine-2.8.0\SpecRunner.html" />
     <Content Include="Scripts\libs\jquery-ui-1.10.4.custom.min.js" />
     <Content Include="Scripts\libs\knockout-3.1.0.js" />
     <Content Include="Scripts\libs\shado-min.js" />
@@ -202,6 +211,7 @@
     <None Include="Scripts\libs\jasmine-1.3.1\MIT.LICENSE" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Scripts\libs\jasmine-2.0.0\MIT.LICENSE" />
+    <Content Include="Scripts\libs\jasmine-2.8.0\MIT.LICENSE" />
     <None Include="Scripts\libs\jquery-2.0.2.min.map" />
     <Content Include="Views\Index\DateDiff.cshtml" />
   </ItemGroup>
